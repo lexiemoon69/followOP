@@ -16,12 +16,18 @@ export default async function handler(req, res) {
       try { body = JSON.parse(body); } catch(e) {}
     }
 
+    // Always use latest stable model
+    if (body.model && body.model === 'claude-sonnet-4-5') {
+      body.model = 'claude-sonnet-4-5';
+    }
+
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'x-api-key': process.env.ANTHROPIC_API_KEY,
-        'anthropic-version': '2023-06-01'
+        'anthropic-version': '2023-06-01',
+        'anthropic-beta': 'pdfs-2024-09-25'
       },
       body: JSON.stringify(body)
     });
@@ -29,11 +35,22 @@ export default async function handler(req, res) {
     const text = await response.text();
     let data;
     try { data = JSON.parse(text); } 
-    catch(e) { return res.status(500).json({ error: 'Invalid Anthropic response', raw: text.substring(0,200) }); }
+    catch(e) { 
+      return res.status(500).json({ 
+        error: 'Invalid Anthropic response', 
+        raw: text.substring(0, 500) 
+      }); 
+    }
 
-    return res.status(response.status).json(data);
+    if (!response.ok) {
+      console.error('Anthropic error:', JSON.stringify(data));
+      return res.status(response.status).json(data);
+    }
+
+    return res.status(200).json(data);
 
   } catch (error) {
+    console.error('Proxy error:', error);
     return res.status(500).json({ error: error.message || 'Proxy failed' });
   }
-} 
+}
