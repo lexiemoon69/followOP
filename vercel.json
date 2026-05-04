@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "api/claude.js", "use": "@vercel/node" },
+    { "src": "*.html", "use": "@vercel/static" },
+    { "src": "*.json", "use": "@vercel/static" },
+    { "src": "*.png", "use": "@vercel/static" },
+    { "src": "*.js", "use": "@vercel/static" }
+  ],
+  "functions": {
+    "api/claude.js": {
+      "maxDuration": 30,
+      "memory": 1024
+    }
+  },
+  "routes": [
+    { "src": "/api/claude", "dest": "/api/claude.js" },
+    { "src": "/sw.js", "dest": "/sw.js", "headers": { "Service-Worker-Allowed": "/", "Cache-Control": "no-cache" } },
+    { "src": "/guide", "dest": "/guide.html" },
+    { "src": "/guide-content.json", "dest": "/guide-content.json", "headers": { "Cache-Control": "no-cache" } },
+    { "src": "/manifest.json", "dest": "/manifest.json" },
+    { "src": "/icon-512.png", "dest": "/icon-512.png" },
+    { "src": "/icon-192.png", "dest": "/icon-192.png" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
+}
