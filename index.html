@@ -1094,23 +1094,35 @@ body.dark strong{color:#FFFFFF!important;}
     <div class="handle"></div>
     <div class="modal-title">⚡ Special Event <em>Report</em></div>
     <div class="modal-sub">Generate immediately after an event — send within the hour</div>
-    <div class="field">
-      <label>Select Client *</label>
-      <select id="ser-client"><option value="">Choose client...</option></select>
+
+    <!-- INPUT SECTION -->
+    <div id="ser-inputs">
+      <div class="field">
+        <label>Select Client *</label>
+        <select id="ser-client"><option value="">Choose client...</option></select>
+      </div>
+      <div class="field">
+        <label>Select Event *</label>
+        <select id="ser-event"><option value="">Choose event...</option></select>
+      </div>
+      <div class="field">
+        <label>Additional Notes</label>
+        <textarea id="ser-notes" placeholder="Anything else to add — next steps, observations, opportunities..."></textarea>
+      </div>
+      <div style="font-size:12px;color:var(--light);line-height:1.7;margin-bottom:12px;padding:10px;background:var(--blue-dim);border:1px solid var(--blue-border);">
+        FollowOp will pull all contacts tagged to this event, sort Hot Intros first, and generate a complete client report ready to copy and send.
+      </div>
+      <button class="btn-p blue" onclick="genSpecialEventReport()">⚡ Generate Report</button>
+      <button class="btn-s" onclick="closeModal('ser-modal')">Cancel</button>
     </div>
-    <div class="field">
-      <label>Select Event *</label>
-      <select id="ser-event"><option value="">Choose event...</option></select>
+
+    <!-- RESULTS SECTION -->
+    <div id="ser-results" style="display:none;">
+      <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--blue-light);margin-bottom:10px;font-weight:500;">Report Generated ✓</div>
+      <pre id="ser-output" style="font-size:11px;color:var(--mid);line-height:1.9;white-space:pre-wrap;font-family:'DM Sans',sans-serif;background:var(--panel);border:1px solid var(--border);padding:14px;max-height:50vh;overflow-y:auto;margin-bottom:12px;"></pre>
+      <button class="btn-p blue" onclick="copySERReport()" style="margin-bottom:8px;">📋 Copy Report</button>
+      <button class="btn-s" onclick="resetSER()">Generate Another</button>
     </div>
-    <div class="field">
-      <label>Additional Notes</label>
-      <textarea id="ser-notes" placeholder="Anything else to add — next steps, observations, opportunities..."></textarea>
-    </div>
-    <div style="font-size:12px;color:var(--light);line-height:1.7;margin-bottom:12px;padding:10px;background:var(--blue-dim);border:1px solid var(--blue-border);">
-      FollowOp will pull all contacts tagged to this event, sort Hot Intros first, and generate a complete client report ready to copy and send.
-    </div>
-    <button class="btn-p blue" onclick="genSpecialEventReport()">⚡ Generate Report & Copy</button>
-    <button class="btn-s" onclick="closeModal('ser-modal')">Cancel</button>
   </div>
 </div>
 
@@ -2769,7 +2781,35 @@ function genSpecialEventReport(){
   ].join(NL);
   S.reports.unshift({id:Date.now(),type:'special',client:client.name,period:eventName,content:r});
   save();
-  navigator.clipboard.writeText(r).then(function(){closeModal('ser-modal');renderAll();toast('Special Event Report copied!');}).catch(function(){alert(r);closeModal('ser-modal');});
+  window._serReport = r;
+  // Show report in modal
+  document.getElementById('ser-inputs').style.display='none';
+  document.getElementById('ser-results').style.display='block';
+  document.getElementById('ser-output').textContent=r;
+  // Also copy to clipboard
+  navigator.clipboard.writeText(r).then(function(){
+    toast('Report generated and copied to clipboard!');
+  }).catch(function(){
+    toast('Report generated — tap Copy to share');
+  });
+  renderAll();
+}
+
+function copySERReport(){
+  var r=window._serReport||document.getElementById('ser-output').textContent;
+  navigator.clipboard.writeText(r).then(function(){
+    toast('Report copied!');
+  }).catch(function(){
+    alert(r);
+  });
+}
+
+function resetSER(){
+  document.getElementById('ser-inputs').style.display='block';
+  document.getElementById('ser-results').style.display='none';
+  document.getElementById('ser-output').textContent='';
+  document.getElementById('ser-notes').value='';
+  window._serReport=null;
 }
 
 // ══ REPORTS ══
