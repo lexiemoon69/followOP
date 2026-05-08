@@ -1,466 +1,318 @@
 {
-  "version": "1.2",
-  "updated": "May 2026",
-  "tagline": "Follow Up. On Point. Because the room is everywhere.",
-  "getting_started": {
-    "title": "Getting Started",
-    "subtitle": "Everything you need to get started with FollowOp \u2014 from adding the app to your home screen to capturing your first contact.",
-    "steps": [
-      {
-        "number": "1",
-        "title": "Add to your home screen",
-        "body": "FollowOp works best when it lives on your home screen. One tap and you're capturing contacts \u2014 no app store needed.",
-        "platforms": [
-          {
-            "name": "Android \u2014 Chrome",
-            "steps": [
-              "Open followop.app in Chrome",
-              "Tap three dots \u22ee top right",
-              "Tap Add to Home Screen",
-              "Tap Add \u2014 globe icon appears"
-            ]
-          },
-          {
-            "name": "iPhone \u2014 Safari",
-            "steps": [
-              "Open followop.app in Safari \u2014 not Chrome",
-              "Tap share button \u2191 at bottom",
-              "Tap Add to Home Screen",
-              "Tap Add \u2014 globe icon appears"
-            ]
-          }
-        ]
-      },
-      {
-        "number": "2",
-        "title": "Learn the 4 contact types",
-        "body": "Every contact gets tagged with one of four types \u2014 this tells you and your team exactly what to do next.",
-        "types": [
-          {
-            "icon": "\u26a1",
-            "name": "Hot Intro",
-            "desc": "Connect them with someone right now. Urgent.",
-            "action": "Introduce today",
-            "style": "hot"
-          },
-          {
-            "icon": "\ud83d\udccc",
-            "name": "Follow Up",
-            "desc": "Reach out yourself this week. Warm lead.",
-            "action": "Contact this week",
-            "style": "follow"
-          },
-          {
-            "icon": "\ud83d\udca1",
-            "name": "Recommend",
-            "desc": "Great for a client or colleague.",
-            "action": "Recommend when ready",
-            "style": "rec"
-          },
-          {
-            "icon": "\ud83d\udd0d",
-            "name": "Community Intel",
-            "desc": "Good to know. Keep in your network.",
-            "action": "File and remember",
-            "style": "intel"
-          }
-        ]
-      },
-      {
-        "number": "3",
-        "title": "Capture your first contact",
-        "body": "Two modes \u2014 pick the one that fits the moment.",
-        "modes": [
-          {
-            "name": "\u26a1 Quick Capture \u2014 Header Button \u2014 10 Seconds",
-            "desc": "Tap Quick Capture at the top of the app \u2014 always visible. Name and phone or email. Save. Done. Complete their profile later by tapping Edit.",
-            "best_for": "Busy events, quick handoffs, when you only have seconds"
-          },
-          {
-            "name": "\u26a1 Hot Intro \u2014 Full Capture",
-            "desc": "Tap Hot Intro in Quick Actions. Fill in all details. Upload a photo from Gallery and AI fills the form automatically.",
-            "best_for": "When you have a minute, important contacts, client work"
-          }
-        ],
-        "tip": "Always take photos with your regular camera app first \u2014 saves to your camera roll automatically. Then tap Upload from Gallery in FollowOp. Your photo is always safe even if you close the app mid-capture.",
-        "input_guide": [
-          {
-            "icon": "\ud83d\udcf8",
-            "label": "Photo of them",
-            "desc": "reads their energy and personal style"
-          },
-          {
-            "icon": "\ud83e\udeaa",
-            "label": "Business card photo",
-            "desc": "extracts all contact info automatically"
-          },
-          {
-            "icon": "\ud83d\udcf1",
-            "label": "LinkedIn or social screenshot",
-            "desc": "most complete picture"
-          },
-          {
-            "icon": "\ud83c\udf10",
-            "label": "Website or bio screenshot",
-            "desc": "brand and service intel"
-          }
-        ]
-      },
-      {
-        "number": "4",
-        "title": "Log your first event",
-        "body": "Logging events connects your contacts and powers your reports. Do this before every event \u2014 30 seconds.",
-        "steps": [
-          {
-            "n": "1",
-            "title": "Tap Log Event on the dashboard",
-            "desc": "Find the \ud83d\udccd button in Quick Actions grid."
-          },
-          {
-            "n": "2",
-            "title": "Enter event name and date",
-            "desc": "Add venue and which client you are representing."
-          },
-          {
-            "n": "3",
-            "title": "Capture contacts at the event",
-            "desc": "Select the event from the dropdown \u2014 every contact links automatically."
-          },
-          {
-            "n": "4",
-            "title": "After \u2014 log your numbers",
-            "desc": "Conversations, contacts, intros, social posts. ROI score calculated automatically."
-          }
-        ]
-      },
-      {
-        "number": "5",
-        "title": "Read The Room \u2014 before you follow up",
-        "body": "Take a photo of them, upload their LinkedIn screenshot, paste their URL \u2014 or use their business card. AI gives you their communication style and a ready-to-send follow-up message. Culturally aware \u2014 accounts for relationship-first cultures, communication norms across nationalities, and individual personality signals.",
-        "input_guide": [
-          {
-            "icon": "\ud83d\udcf8",
-            "label": "Photo of them",
-            "desc": "reads their energy, body language, and personal style"
-          },
-          {
-            "icon": "\ud83e\udeaa",
-            "label": "Business card photo",
-            "desc": "reads their professional presence \u2014 business intel"
-          },
-          {
-            "icon": "\ud83d\udcf1",
-            "label": "LinkedIn or social screenshot",
-            "desc": "most complete picture"
-          },
-          {
-            "icon": "\ud83c\udf10",
-            "label": "Website or bio screenshot",
-            "desc": "brand intelligence"
-          },
-          {
-            "icon": "\ud83d\udcdd",
-            "label": "Paste their URL or bio",
-            "desc": "LinkedIn URL, Instagram handle, website, or any text"
-          }
-        ],
-        "returns": [
-          "Their communication personality type \u2014 culturally informed",
-          "How to speak to them \u2014 adjusted for their background and style",
-          "What to avoid \u2014 specific to this person",
-          "What they care about most",
-          "A suggested follow-up message \u2014 personalized and ready to send"
-        ],
-        "note": "Business card = business intel. Photo of them = communication style. Use both for the complete picture. AI results are a starting point \u2014 always apply your own judgment.",
-        "limit": "Free: 5/month \u00b7 Standard: 5/month \u00b7 Pro: Unlimited"
-      },
-      {
-        "number": "6",
-        "title": "Vibe The Room \u2014 before you work it",
-        "body": "Take a wide photo or panorama of the room. AI reads the crowd, the energy, the opportunity \u2014 and tells you exactly how to show up and what to say first.",
-        "tip": "On iPhone use Panorama mode to sweep the whole room in one shot. Nothing gets saved \u2014 just the intelligence. Use as a guide \u2014 your own read of the room always takes priority.",
-        "returns": [
-          "The room type and energy level",
-          "Who is in the room \u2014 industries, seniority, decision makers",
-          "Your opportunity \u2014 what contacts to prioritize",
-          "How to show up \u2014 specific advice for this room right now",
-          "Your opening line \u2014 one perfect conversation starter"
-        ]
-      },
-      {
-        "number": "7",
-        "title": "Research This Contact \u2014 know before you call",
-        "body": "Before following up with anyone \u2014 research them. AI searches the web for their full profile, business intel, community affiliations, and recent activity. Culturally aware \u2014 adjusts follow-up approach based on cultural context.",
-        "input_guide": [
-          {
-            "icon": "\ud83d\udcf8",
-            "label": "Photo of them",
-            "desc": "professional presence and style"
-          },
-          {
-            "icon": "\ud83e\udeaa",
-            "label": "Business card photo",
-            "desc": "extracts all business intel"
-          },
-          {
-            "icon": "\ud83d\udcf1",
-            "label": "LinkedIn or social screenshot",
-            "desc": "full profile intelligence"
-          },
-          {
-            "icon": "\ud83c\udfe2",
-            "label": "Google Business screenshot",
-            "desc": "reviews and company info"
-          },
-          {
-            "icon": "\ud83d\udcdd",
-            "label": "Paste LinkedIn URL",
-            "desc": "most accurate individual intelligence"
-          }
-        ],
-        "note": "AI-generated research may be incomplete or outdated. Verify important details before acting. Cultural inferences are generalizations \u2014 not absolutes.",
-        "limit": "Free: 3/month \u00b7 Standard: 10/month \u00b7 Pro: Unlimited"
-      },
-      {
-        "number": "8",
-        "title": "Protect your data",
-        "body": "Your contacts live on your device. Export regularly \u2014 especially before clearing your browser or switching phones.",
-        "exports": [
-          {
-            "icon": "\ud83d\udcca",
-            "name": "Export to CSV",
-            "desc": "Settings \u2192 Export Contacts to CSV. Downloads a spreadsheet with all contacts, notes, events, and client tags. Open in Google Sheets or send to your VA."
-          },
-          {
-            "icon": "\ud83d\udce5",
-            "name": "Import from CSV",
-            "desc": "Settings \u2192 Import Contacts from CSV. Restore contacts from a previous export. Detects and skips duplicates automatically."
-          },
-          {
-            "icon": "\ud83d\udcf1",
-            "name": "Save to Phone",
-            "desc": "Open any contact \u2192 tap Save to Phone. Downloads a vCard with their photo. Opens in your phone's contacts app \u2014 tap to save."
-          },
-          {
-            "icon": "\ud83d\udcc4",
-            "name": "PDF Contact Brief",
-            "desc": "Open any contact \u2192 tap PDF Brief. Professional one-pager with photo, notes, contact intelligence, and follow-up template. Hand to your VA.",
-            "limit": "Free: 3/month \u00b7 Standard: 10/month \u00b7 Pro: Unlimited"
-          }
-        ]
-      }
-    ],
-    "plans": [
-      {
-        "name": "Free",
-        "price": "$0",
-        "period": "forever",
-        "features": [
-          "50 contacts",
-          "10 events",
-          "5 RTR reads/mo",
-          "3 Research/mo",
-          "3 PDF briefs/mo",
-          "Vibe The Room"
-        ]
-      },
-      {
-        "name": "Standard",
-        "price": "$9.99",
-        "period": "/month",
-        "features": [
-          "Unlimited contacts",
-          "Unlimited events",
-          "5 RTR reads/mo",
-          "10 Research/mo",
-          "10 PDF briefs/mo",
-          "Vibe The Room"
-        ]
-      },
-      {
-        "name": "Pro",
-        "price": "$19.99",
-        "period": "/month",
-        "features": [
-          "Everything unlimited",
-          "Client management",
-          "All reports",
-          "Special Event Report",
-          "Vibe The Room",
-          "30-day free trial"
-        ]
-      }
-    ],
-    "disclaimer": "FollowOp uses AI to generate communication insights, contact research, and room assessments. Results are AI-generated and may be incomplete or inaccurate. All insights should be used as a starting point \u2014 not a final conclusion. Cultural and personality assessments are generalizations. Always apply your own judgment. FollowOp and Ash\u00e9 & Ember Co. are not responsible for decisions made based on AI-generated content."
-  },
-  "whats_new": {
-    "title": "What's New in v1.2",
-    "subtitle": "The biggest update since launch \u2014 culturally intelligent AI, deeper contact intelligence, faster capture, smarter reporting, and a cleaner experience on every device.",
-    "differentiators": [
-      {
-        "icon": "\ud83c\udf0d",
-        "title": "Culturally Intelligent AI",
-        "desc": "Most networking apps assume everyone communicates like a Western corporate professional. FollowOp does not. Our AI accounts for relationship-first cultures, high-context communication styles, cultural dress and markers, religious affiliations, and regional communication norms. Whether you are networking with a Nigerian entrepreneur, a Japanese executive, a Latin American business owner, or a Southern pastor \u2014 FollowOp gives you culturally appropriate intelligence, not a one-size-fits-all script."
-      },
-      {
-        "icon": "\ud83c\udfdb",
-        "title": "The Only App That Reads the Room",
-        "desc": "No other networking app lets you point your camera at a crowd and get instant intelligence on who is there, what the energy is, how to show up, and what to say first. Vibe The Room is a FollowOp original \u2014 built for people who work rooms professionally."
-      },
-      {
-        "icon": "\ud83e\udd1d",
-        "title": "Built for the CEO Service Model",
-        "desc": "FollowOp is the only app built specifically for professionals who represent brands in the community. Client management, weekly presence reports, special event reports, and PDF contact briefs \u2014 everything a community experience officer needs to deliver professional results and prove their value to clients."
-      },
-      {
-        "icon": "\ud83d\udcf8",
-        "title": "Any Image. Any Platform. Any Culture.",
-        "desc": "Scan a business card, upload a Facebook screenshot, photograph a LinkedIn profile, snap a headshot \u2014 FollowOp reads it all. No platform-specific limitations. Works with photos from any country, any culture, any background."
-      }
-    ],
-    "features": [
-      {
-        "icon": "\ud83c\udf0d",
-        "badge": "New \u2014 All Plans",
-        "badge_style": "green",
-        "title": "Culturally Intelligent Communication Analysis",
-        "desc": "Read The Room and Research This Contact now account for cultural background, nationality, religious affiliation, and communication norms across cultures. Relationship-first cultures get relationship-first follow-up strategies. Direct cultures get direct approaches. No more Western corporate defaults.",
-        "limit": "All plans"
-      },
-      {
-        "icon": "\ud83c\udfdb",
-        "badge": "New \u2014 All Plans",
-        "badge_style": "green",
-        "title": "Vibe The Room",
-        "desc": "Take a wide photo or panorama of any room and AI delivers instant room intelligence \u2014 who is there, what the energy is, your opportunity, how to show up, and your perfect opening line. Nothing gets saved \u2014 just the intelligence. Works on every device.",
-        "limit": "All plans"
-      },
-      {
-        "icon": "\ud83d\udd0d",
-        "badge": "New \u2014 Limited",
-        "badge_style": "amber",
-        "title": "Research This Contact",
-        "desc": "AI searches the web for everything about a contact \u2014 LinkedIn, Google Business, social media, news mentions, community affiliations, and how to serve them better. Use a photo, business card, screenshot, or paste their URL. Culturally aware follow-up recommendations included.",
-        "limit": "Free: 3/month \u00b7 Standard: 10/month \u00b7 Pro: Unlimited"
-      },
-      {
-        "icon": "\u26a1",
-        "badge": "New \u2014 Pro Only",
-        "badge_style": "purple",
-        "title": "Special Event Report",
-        "desc": "Generate immediately after expos, pop-ups, and brand events. Auto-pulls every contact \u2014 Hot Intros first \u2014 and builds a professional client report in seconds. Copy and send within the hour.",
-        "limit": "Pro only",
-        "steps": [
-          {
-            "n": "1",
-            "title": "Before \u2014 log the event",
-            "desc": "30 seconds. Event name, date, client."
-          },
-          {
-            "n": "2",
-            "title": "During \u2014 capture and tag",
-            "desc": "Quick Capture or Hot Intro. Select event and client. Tag contact type."
-          },
-          {
-            "n": "3",
-            "title": "After \u2014 generate the report",
-            "desc": "Dashboard \u2192 Special Event Report \u2192 select client and event \u2192 Generate."
-          },
-          {
-            "n": "4",
-            "title": "Send within the hour",
-            "desc": "Paste into email. Send to client. Their VA handles follow-ups."
-          }
-        ]
-      },
-      {
-        "icon": "\ud83d\udcc4",
-        "badge": "New \u2014 Limited",
-        "badge_style": "amber",
-        "title": "PDF Contact Brief",
-        "desc": "Export any contact as a professional one-pager \u2014 photo, contact info, notes, contact intelligence, and a follow-up template. Hand to your VA and they have everything they need to follow up on your behalf.",
-        "limit": "Free: 3/month \u00b7 Standard: 10/month \u00b7 Pro: Unlimited"
-      },
-      {
-        "icon": "\ud83d\udce5",
-        "badge": "New \u2014 All Plans",
-        "badge_style": "green",
-        "title": "Import Contacts from CSV",
-        "desc": "Restore contacts from a previous export. Settings \u2192 Import Contacts from CSV. Detects and skips duplicates automatically. Never lose your network again."
-      },
-      {
-        "icon": "\ud83d\udcf8",
-        "badge": "Improved \u2014 All Plans",
-        "badge_style": "green",
-        "title": "Universal Image Reading",
-        "desc": "Now handles any image from any platform \u2014 Facebook, LinkedIn, Instagram, Twitter, TikTok, business cards, headshots, website screenshots, Google Business pages. HEIC, PNG, WebP, JPEG all supported. Gallery and camera both work."
-      },
-      {
-        "icon": "\ud83d\udd10",
-        "badge": "All Plans",
-        "badge_style": "green",
-        "title": "Smarter Access & Activation",
-        "desc": "Two-step activation \u2014 pay on Stripe, get your access code in the confirmation email, enter it in Settings. Pro now includes a 30-day free trial. Card required, cancel anytime before day 30."
-      }
-    ],
-    "roadmap": [
-      {
-        "icon": "\ud83c\udfa5",
-        "title": "Video Room Analysis",
-        "desc": "True video capture for Vibe The Room \u2014 pan the room and AI reads the full scene in motion.",
-        "phase": "Native app \u2014 Phase 2"
-      },
-      {
-        "icon": "\ud83d\udd14",
-        "title": "Push Notifications",
-        "desc": "Follow-up reminders, trial ending alerts, weekly digest sent to your phone.",
-        "phase": "Native app \u2014 Phase 2"
-      },
-      {
-        "icon": "\ud83d\udcf1",
-        "title": "Native App",
-        "desc": "Live QR scanning, save to camera roll, full offline mode, App Store and Google Play.",
-        "phase": "Phase 2 \u2014 coming when funded"
-      },
-      {
-        "icon": "\ud83c\udf10",
-        "title": "Virtual Networking Mode",
-        "desc": "Paste a virtual event URL or LinkedIn Live link \u2014 AI reads the event, tells you who is likely there, and how to engage in the virtual room.",
-        "phase": "Phase 2"
-      },
-      {
-        "icon": "\ud83d\udd17",
-        "title": "Stripe Webhook",
-        "desc": "Automatic tier activation on payment \u2014 no manual code entry needed.",
-        "phase": "Developer task \u2014 Phase 2"
-      },
-      {
-        "icon": "\u2601\ufe0f",
-        "title": "Cloud Sync",
-        "desc": "Contacts sync across all your devices automatically.",
-        "phase": "Requires backend \u2014 Phase 2"
-      },
-      {
-        "icon": "\ud83c\udff7\ufe0f",
-        "title": "White Label",
-        "desc": "Other businesses deploy FollowOp under their own brand. Staffing agencies, real estate brokerages, chambers of commerce, marketing agencies.",
-        "phase": "Phase 2 \u2014 available for enterprise clients"
-      },
-      {
-        "icon": "\ud83d\udce7",
-        "title": "Direct Client Email",
-        "desc": "Send Special Event Reports, weekly and monthly reports directly to clients from inside the app. No copy-paste needed \u2014 one tap sends.",
-        "phase": "Phase 2 \u2014 requires email service integration"
-      }
-    ],
-    "disclaimer": "FollowOp uses AI to generate communication insights, contact research, and room assessments. Results are AI-generated and may be incomplete, inaccurate, or not reflective of an individual's actual communication style or cultural background. Cultural and personality assessments are generalizations \u2014 not absolutes. Always apply your own judgment and direct observation. FollowOp and Ash\u00e9 & Ember Co. are not responsible for decisions made based on AI-generated insights."
-  },
-  "links": {
-    "app": "https://followop.app",
-    "register": "https://followop.now.site/home",
-    "ceo": "https://asheco.now.site/ceo",
-    "support": "lexie@asheemberco.com",
-    "pro_payment": "https://buy.stripe.com/00w14pc7YdPl1Hzf3bdAk00",
-    "standard_payment": "https://buy.stripe.com/14A6oJb3UdPlbi9g7fdAk01"
-  }
+  "version": "1.3",
+  "lastUpdated": "2026-05-08",
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting Started",
+      "items": [
+        {
+          "title": "Adding FollowOp to your home screen",
+          "body": "On Android: open followop.app in Chrome → tap the three dots menu → tap \"Add to Home Screen\". On iPhone: open in Safari → tap the share button → tap \"Add to Home Screen\". The globe icon appears on your home screen — one tap and you're in."
+        },
+        {
+          "title": "Free vs Standard vs Pro",
+          "body": "Free gives you 50 contacts, 10 events, 5 Read The Room reads, and 3 Research reads per month. Standard gives you unlimited contacts and events. Pro adds client/referral management, all reports, Special Event Report, calendar view, and unlimited AI features. Upgrade anytime from Settings."
+        },
+        {
+          "title": "Activating your account after payment",
+          "body": "After paying on Stripe you will receive a confirmation email with your access code. Go to Settings → scroll to Activate Your Account → enter your email and access code → tap Activate. Your account upgrades instantly. Coupon codes also work as activation codes."
+        }
+      ]
+    },
+    {
+      "id": "capturing-contacts",
+      "title": "Capturing Contacts",
+      "items": [
+        {
+          "title": "⚡ Quick Capture — fastest mode",
+          "body": "Tap the Quick Capture button in the header — always visible at the top of the app. Name and phone or email — saved in 10 seconds. Complete their full profile later by tapping the contact and hitting Edit."
+        },
+        {
+          "title": "⚡ Hot Intro — full capture",
+          "body": "Tap Hot Intro in the Quick Actions grid on the dashboard. Fill in all their details — company, title, notes, which client/referral they connect to, and contact type. Upload a photo of their business card from Gallery and AI fills the form automatically."
+        },
+        {
+          "title": "How to scan a business card",
+          "body": "Take a photo of their card with your regular camera app first — it saves to your camera roll automatically. Then in FollowOp tap Hot Intro → Upload from Gallery → select the photo. AI reads the card and fills in the form. Review and save. Works with HEIC, PNG, WebP, and JPEG from any phone."
+        },
+        {
+          "title": "The 4 contact types",
+          "body": "⚡ Hot Intro — Connect them with someone right now — urgent. 📌 Follow Up — Reach out yourself this week. 💡 Recommend — Great for a client or colleague. 🔍 Intel — Good to know — keep in your network.",
+          "badges": [
+            {"icon": "⚡", "label": "Hot Intro", "type": "hot"},
+            {"icon": "📌", "label": "Follow Up", "type": "follow"},
+            {"icon": "💡", "label": "Recommend", "type": "recommend"},
+            {"icon": "🔍", "label": "Intel", "type": "intel"}
+          ]
+        },
+        {
+          "title": "Adding a client/referral on the fly",
+          "body": "In the contact capture form tap the \"Connect to client?\" dropdown and select \"+ Add New Client\". A quick form slides up — enter the brand name and tier. Complete their full profile from the Clients/Referrals tab later."
+        },
+        {
+          "title": "Social links on contacts",
+          "body": "Add LinkedIn, Instagram, Twitter/X, and Facebook URLs when capturing or editing a contact. Social links appear as clickable buttons on the contact detail view so you can visit their profiles instantly."
+        },
+        {
+          "title": "Photo upload for contacts",
+          "body": "Upload a profile photo or business card image when adding or editing a contact. Photos display on the contact card and in the contact detail view. Supported formats: JPEG, PNG, WebP, HEIC."
+        }
+      ]
+    },
+    {
+      "id": "read-the-room",
+      "title": "Read The Room — Culturally Intelligent",
+      "items": [
+        {
+          "title": "What it does",
+          "body": "Analyzes any image or pasted text to determine how someone communicates — then gives you a personalized follow-up message ready to send. Culturally aware — accounts for relationship-first cultures, communication norms across nationalities, and individual personality signals. Not just Western corporate defaults."
+        },
+        {
+          "title": "What you can upload or paste",
+          "body": "Photo of them. Business card. LinkedIn screenshot. Facebook profile. Instagram profile. Twitter/X. Any social media screenshot. Website screenshot. Paste their LinkedIn URL, Instagram handle, bio text, or any info about them. AI reads everything — any platform, any culture, any background."
+        },
+        {
+          "title": "The 4 communication types",
+          "body": "Results Driver — direct, data-focused, lead with ROI. Relationship Builder — warm, personal, lead with connection. Detail Architect — thorough, analytical, lead with specifics. Vision Seeker — big picture, creative, lead with possibility. Results are culturally informed — a Relationship Builder from Lagos will get different guidance than one from Manhattan."
+        },
+        {
+          "title": "AI disclaimer",
+          "body": "Results are AI-generated and may be incomplete or inaccurate. Use as a starting point — always trust your own read of the person. Cultural assessments are generalizations, not absolutes."
+        },
+        {
+          "title": "Limits",
+          "body": "Free and Standard: 5 reads per month. Pro: unlimited. Counter resets at the start of each month."
+        }
+      ]
+    },
+    {
+      "id": "vibe-the-room",
+      "title": "Vibe The Room",
+      "items": [
+        {
+          "title": "What it does",
+          "body": "Take a wide photo or panorama of any room — AI reads the crowd energy, who is there, your opportunity, how to show up, and your perfect opening line. Nothing gets saved — just the intelligence. Available on all plans."
+        },
+        {
+          "title": "How to use it",
+          "body": "Tap Vibe The Room on the dashboard. Take a wide photo of the room — sweep across the crowd, the setup, the energy. On iPhone use Panorama mode for best results. Tap Upload from Gallery if you already took the photo. AI delivers room intelligence in seconds."
+        },
+        {
+          "title": "Best results tip",
+          "body": "Get as much of the room as possible in one shot. Panorama mode on iPhone works best. The more people and context visible, the more specific the intelligence. Works from any angle — lobby, stage view, crowd shot."
+        },
+        {
+          "title": "AI disclaimer",
+          "body": "Room assessment is AI-generated. Use as a guide — your instincts and direct observation always take priority."
+        }
+      ]
+    },
+    {
+      "id": "research",
+      "title": "Research This Contact — Culturally Intelligent",
+      "items": [
+        {
+          "title": "What it does",
+          "body": "AI searches the web for everything about a contact — LinkedIn, Google Business, social media, news mentions, community affiliations, and how to serve them. Results include culturally appropriate follow-up recommendations — adjusts for relationship-first cultures, not just Western business norms."
+        },
+        {
+          "title": "Three ways to research",
+          "body": "From Contact — uses their saved name, company, and website automatically. Paste Info — paste their LinkedIn URL, Instagram handle, Facebook URL, website, email signature, or any bio text. Gallery — upload a screenshot of their profile page, business card, or any image."
+        },
+        {
+          "title": "Best results tip",
+          "body": "Paste their LinkedIn URL for the most accurate individual intelligence. For businesses paste their Google Business URL or website. The more specific the input the better the output."
+        },
+        {
+          "title": "AI disclaimer",
+          "body": "Research is AI-generated and may be incomplete or outdated. Verify important details before acting. Cultural inferences are generalizations — not absolutes."
+        },
+        {
+          "title": "Limits",
+          "body": "Free: 3 per month. Standard: 10 per month. Pro: unlimited."
+        }
+      ]
+    },
+    {
+      "id": "events",
+      "title": "Events",
+      "items": [
+        {
+          "title": "Logging an event",
+          "body": "Tap Log Event on the dashboard. Fill in event name, date, venue, and which client/referral you are representing. Log conversations, contacts captured, intros made, and social posts. Add a summary and community intel. ROI score is calculated automatically."
+        },
+        {
+          "title": "Tagging contacts to events",
+          "body": "When capturing a contact select the event from the dropdown — your logged events appear automatically. This is what powers the Special Event Report and keeps your network organized by room."
+        },
+        {
+          "title": "Saving a Vibe The Room report to an event",
+          "body": "After running Vibe The Room tap Save to Current Event. The room intelligence saves to your most recently logged event — keeps everything connected."
+        },
+        {
+          "title": "Calendar view",
+          "body": "Tap the Calendar button in the Events tab or on the Dashboard. View all your logged events in a monthly grid. Navigate between months with arrow buttons. Tap any event on a date to view its details. Great for tracking your event activity over time."
+        },
+        {
+          "title": "Editing and deleting events",
+          "body": "Each event card now has Edit and Delete buttons. Tap Edit to update event details including name, date, venue, client/referral represented, and all activity metrics. Tap Delete to remove an event permanently."
+        }
+      ]
+    },
+    {
+      "id": "clients-referrals",
+      "title": "Clients/Referrals — Pro Only",
+      "items": [
+        {
+          "title": "Adding a client/referral",
+          "body": "Tap the Clients/Referrals tab → Add. Fill in brand name, contact name, service tier, elevator pitch, target rooms and contacts, and what not to say. Add their social media handles so you can tag them in posts from the room instantly."
+        },
+        {
+          "title": "Editing and deleting clients/referrals",
+          "body": "Each client/referral card has Edit and Delete buttons. Tap Edit to update all details including photo, social links, brand info, service tier, and notes. Tap Delete to remove a client/referral permanently."
+        },
+        {
+          "title": "Service tiers",
+          "body": "30-Day Pilot — $2,000. In The Room — $1,500/month. Maximum Presence — $3,000/month. Government — custom. Set the tier when adding a client — it appears in all reports."
+        },
+        {
+          "title": "Client/referral color coding",
+          "body": "Each client/referral gets a color automatically. Contact cards show a colored tag when linked to a client/referral — easy visual sorting at a glance."
+        },
+        {
+          "title": "Social links for clients/referrals",
+          "body": "Add LinkedIn, Instagram, Twitter/X, and Facebook for your clients/referrals. Access them quickly from the client detail view to tag in social posts from events."
+        }
+      ]
+    },
+    {
+      "id": "reports",
+      "title": "Reports — Pro Only",
+      "items": [
+        {
+          "title": "⚡ Special Event Report — most important",
+          "body": "Generate immediately after leaving an expo, pop-up, or brand event. Tap Special Event Report on the dashboard. Select client/referral and event — FollowOp pulls all tagged contacts, sorts Hot Intros first, and generates a full report. Copy and send to your client within the hour."
+        },
+        {
+          "title": "Weekly report",
+          "body": "Fill in your week's activity — events, conversations, contacts, intros, key people, community intel. Tap Generate and the report copies to your clipboard. Paste into email and send every Friday or Monday morning."
+        },
+        {
+          "title": "Monthly summary",
+          "body": "Covers the full month including recommended events for next month and goals. Send at end of month with your invoice."
+        },
+        {
+          "title": "Brief export options",
+          "body": "After generating any report (Weekly, Monthly, or Special Event), use the Brief Export modal to download as a file, copy to clipboard, or email the report directly. Multiple export formats give you flexibility in how you deliver reports to clients."
+        },
+        {
+          "title": "PDF Contact Brief",
+          "body": "Open any contact → tap Research This Contact → results save to their profile. Then open the contact → tap the PDF icon to export a professional one-pager. Hand to your VA — they have everything they need to follow up. Free: 3/month. Standard: 10/month. Pro: unlimited."
+        }
+      ]
+    },
+    {
+      "id": "your-data",
+      "title": "Your Data",
+      "items": [
+        {
+          "title": "Where is my data stored?",
+          "body": "Your data lives on your device. It does not sync between devices yet. Export regularly — especially before clearing your browser or switching phones. FollowOp reminds you to export every 10 new contacts."
+        },
+        {
+          "title": "Exporting contacts",
+          "body": "Settings → Export Contacts to CSV. Downloads a spreadsheet with all contact info, notes, event tags, client/referral links, and social links. Open in Google Sheets or send to your VA."
+        },
+        {
+          "title": "Importing contacts",
+          "body": "Settings → Import Contacts from CSV. Restore contacts from a previous export. Enhanced CSV import handles BOM characters, normalizes line endings, and supports comprehensive field mapping for over 20 contact data fields including social links. Detects and skips duplicates automatically."
+        },
+        {
+          "title": "Saving a contact to your phone",
+          "body": "Open any contact → tap Save to Phone. Downloads a vCard with their photo. Opens in your phone's contacts app — tap to save. Works on both Android and iPhone."
+        }
+      ]
+    },
+    {
+      "id": "account-access",
+      "title": "Account & Access",
+      "items": [
+        {
+          "title": "Upgrading to Pro or Standard",
+          "body": "Settings → tap Upgrade to Pro or Upgrade Standard. Pay on Stripe. Check your email for your access code. Come back to Settings → enter your email and code → Activate."
+        },
+        {
+          "title": "Using a coupon code",
+          "body": "Enter your coupon code on the Stripe checkout page. The same coupon code also works as your activation code — enter it in the activation field in Settings after payment."
+        }
+      ]
+    },
+    {
+      "id": "ai-disclaimer",
+      "title": "AI Disclaimer",
+      "items": [
+        {
+          "title": "Important — please read",
+          "body": "FollowOp uses AI to generate communication insights, contact research, and room assessments. Results are AI-generated and may be incomplete, inaccurate, or not reflective of an individual's actual communication style or cultural background. Cultural and personality assessments are generalizations — not absolutes. Always apply your own judgment. FollowOp and Ashé & Ember Co. are not responsible for decisions made based on AI-generated insights."
+        }
+      ]
+    },
+    {
+      "id": "whats-new",
+      "title": "What's New in v1.3",
+      "items": [
+        {
+          "title": "Clients renamed to Clients/Referrals",
+          "body": "The Clients tab is now Clients/Referrals throughout the app — navigation, modals, reports, and help documentation all reflect the updated terminology to better represent both client and referral partner relationships."
+        },
+        {
+          "title": "Calendar view for events",
+          "body": "New monthly calendar grid accessible from the Events tab and Dashboard. Navigate between months, see events plotted on dates, and tap to view event details."
+        },
+        {
+          "title": "Photo upload for contacts and clients/referrals",
+          "body": "Upload profile photos or business card images when adding or editing contacts and clients/referrals. Photos display on cards and detail views."
+        },
+        {
+          "title": "Social links everywhere",
+          "body": "Add LinkedIn, Instagram, Twitter/X, and Facebook URLs to contacts and clients/referrals. Social links appear as clickable buttons for instant access to profiles."
+        },
+        {
+          "title": "Editable event logs",
+          "body": "Edit and delete events directly from the Events tab. Update all event details including venue, client/referral represented, and activity metrics."
+        },
+        {
+          "title": "Editable clients/referrals",
+          "body": "Edit and delete clients/referrals directly from the Clients/Referrals tab. Update all profile details including photo and social links."
+        },
+        {
+          "title": "Enhanced CSV import",
+          "body": "CSV import now handles BOM characters, normalizes line endings, and supports comprehensive field mapping for over 20 data fields including social links."
+        },
+        {
+          "title": "Brief export options",
+          "body": "New Brief Export modal for reports — download, copy to clipboard, or email reports directly after generation."
+        },
+        {
+          "title": "Back buttons on all modals",
+          "body": "Every modal dialog now has a ← Back button at the top for easier navigation."
+        },
+        {
+          "title": "Research from contact detail",
+          "body": "Tap 'Research This Contact' button on any contact detail view to auto-load their data into the research modal and trigger AI research instantly."
+        }
+      ]
+    },
+    {
+      "id": "more-resources",
+      "title": "More Resources",
+      "items": [
+        {
+          "title": "Need help?",
+          "body": "Email lexie@asheemberco.com or visit asheco.now.site/ceo"
+        }
+      ]
+    }
+  ]
 }
