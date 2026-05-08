@@ -1,87 +1,78 @@
+// FollowOp — Claude API Proxy
+// Serverless function for Vercel
+// Proxies requests to Anthropic Claude API for:
+//   - Contact intelligence (Read The Room, Research)
+//   - Business card scanning (vision)
+//   - Report generation (clients/referrals reports)
+//   - Room assessment (Vibe The Room)
+//   - Communication analysis
+
 export default async function handler(req, res) {
+  // CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  if (req.method === 'OPTIONS') return res.status(200).end();
-  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
 
-  if (!process.env.ANTHROPIC_API_KEY) {
-    return res.status(500).json({ error: 'API key not configured' });
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: { message: 'Method not allowed' } });
+  }
+
+  const apiKey = process.env.ANTHROPIC_API_KEY;
+  if (!apiKey) {
+    return res.status(500).json({ error: { message: 'API key not configured' } });
   }
 
   try {
-    let body = req.body;
-    if (typeof body === 'string') {
-      try { body = JSON.parse(body); } catch(e) {}
+    const body = req.body;
+
+    // Validate required fields
+    if (!body.model || !body.messages) {
+      return res.status(400).json({ error: { message: 'Missing required fields: model, messages' } });
     }
 
-    // Build headers - only add beta headers when needed
-    const headers = {
-      'Content-Type': 'application/json',
-      'x-api-key': process.env.ANTHROPIC_API_KEY,
-      'anthropic-version': '2023-06-01',
+    // Build Anthropic API request
+    const anthropicBody = {
+      model: body.model,
+      max_tokens: body.max_tokens || 1024,
+      messages: body.messages
     };
 
-    // Add web search beta only when tools are present
-    if (body.tools && body.tools.length > 0) {
-      headers['anthropic-beta'] = 'web-search-2025-03-05';
+    // Include tools if provided (e.g., web_search for Research feature)
+    if (body.tools) {
+      anthropicBody.tools = body.tools;
+    }
+
+    // Include system prompt if provided
+    if (body.system) {
+      anthropicBody.system = body.system;
     }
 
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
-      headers,
-      body: JSON.stringify(body)
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01'
+      },
+      body: JSON.stringify(anthropicBody)
     });
 
-    const text = await response.text();
-    let data;
-    try { data = JSON.parse(text); }
-    catch(e) {
-      return res.status(500).json({ error: 'Invalid response', raw: text.substring(0, 200) });
-    }
+    const data = await response.json();
 
     if (!response.ok) {
-      console.error('Anthropic error:', JSON.stringify(data));
+      console.error('[FollowOp API] Anthropic error:', JSON.stringify(data).substring(0, 500));
       return res.status(response.status).json(data);
     }
 
-    // Handle tool use loop - web search requires continuing the conversation
-    if (data.stop_reason === 'tool_use' && body.tools) {
-      const toolUseBlocks = data.content.filter(b => b.type === 'tool_use');
-      const toolResults = toolUseBlocks.map(block => ({
-        type: 'tool_result',
-        tool_use_id: block.id,
-        content: block.type === 'web_search' ? 'Search results retrieved.' : 'Tool completed.'
-      }));
-
-      const continueBody = {
-        ...body,
-        messages: [
-          ...body.messages,
-          { role: 'assistant', content: data.content },
-          { role: 'user', content: toolResults }
-        ]
-      };
-
-      const continueResponse = await fetch('https://api.anthropic.com/v1/messages', {
-        method: 'POST',
-        headers,
-        body: JSON.stringify(continueBody)
-      });
-
-      const continueText = await continueResponse.text();
-      let continueData;
-      try { continueData = JSON.parse(continueText); }
-      catch(e) { continueData = data; }
-
-      return res.status(200).json(continueData);
-    }
-
     return res.status(200).json(data);
-
   } catch (error) {
-    console.error('Proxy error:', error);
-    return res.status(500).json({ error: error.message || 'Proxy failed' });
+    console.error('[FollowOp API] Server error:', error.message);
+    return res.status(500).json({
+      error: { message: 'Internal server error: ' + error.message }
+    });
   }
 }
