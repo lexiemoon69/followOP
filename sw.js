@@ -1,47 +1,77 @@
-// FollowOp Service Worker
-// PURPOSE: Enable PWA install and home screen icon ONLY
-// NEVER clears localStorage, NEVER intercepts app requests
+// FollowOp Service Worker v1.3.0
+// Updated: 2026-05-08 — Clients/Referrals rebranding, calendar, photo upload, enhanced CSV, brief export
 
-const CACHE_NAME = 'followop-icons-v1';
+var CACHE_NAME = 'followop-v1.3.0';
+var URLS_TO_CACHE = [
+  '/',
+  '/index.html',
+  '/manifest.json',
+  '/guide.html',
+  '/guide-content.json',
+  '/icon-192.png',
+  '/icon-512.png'
+];
 
-// Only cache static assets - icons and manifest
-self.addEventListener('install', function(e) {
-  e.waitUntil(
+// Install — cache app shell
+self.addEventListener('install', function(event) {
+  event.waitUntil(
     caches.open(CACHE_NAME).then(function(cache) {
-      return cache.addAll(['/icon-192.png', '/icon-512.png', '/manifest.json']);
-    }).catch(function(err) {
-      console.log('SW install error:', err);
+      console.log('[SW] Caching app shell v1.3.0');
+      return cache.addAll(URLS_TO_CACHE);
     })
   );
-  // Take over immediately
+  // Activate immediately
   self.skipWaiting();
 });
 
-self.addEventListener('activate', function(e) {
-  e.waitUntil(
-    // Only delete old icon caches - never touch anything else
-    caches.keys().then(function(keys) {
+// Activate — clear old caches
+self.addEventListener('activate', function(event) {
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
       return Promise.all(
-        keys.filter(function(key) { return key !== CACHE_NAME; })
-            .map(function(key) { return caches.delete(key); })
+        cacheNames.filter(function(name) {
+          return name !== CACHE_NAME;
+        }).map(function(name) {
+          console.log('[SW] Deleting old cache:', name);
+          return caches.delete(name);
+        })
       );
     })
   );
+  // Take control of all pages immediately
   self.clients.claim();
 });
 
-// CRITICAL: Do NOT intercept ANY fetch requests
-// Let everything go straight to network
-// This prevents the service worker from ever interfering with the app
-self.addEventListener('fetch', function(e) {
-  // Only serve cached icons - never intercept anything else
-  var url = e.request.url;
-  if (url.includes('icon-192.png') || url.includes('icon-512.png') || url.includes('manifest.json')) {
-    e.respondWith(
-      caches.match(e.request).then(function(cached) {
-        return cached || fetch(e.request);
-      })
-    );
-  }
-  // Everything else - do nothing, let browser handle normally
+// Fetch — network first, fall back to cache
+self.addEventListener('fetch', function(event) {
+  // Skip non-GET requests
+  if (event.request.method !== 'GET') return;
+
+  // Skip API calls — always go to network
+  if (event.request.url.indexOf('/api/') > -1) return;
+
+  // Skip chrome-extension and other non-http requests
+  if (!event.request.url.startsWith('http')) return;
+
+  event.respondWith(
+    fetch(event.request).then(function(response) {
+      // Clone and cache successful responses
+      if (response && response.status === 200 && response.type === 'basic') {
+        var responseClone = response.clone();
+        caches.open(CACHE_NAME).then(function(cache) {
+          cache.put(event.request, responseClone);
+        });
+      }
+      return response;
+    }).catch(function() {
+      // Network failed — try cache
+      return caches.match(event.request).then(function(response) {
+        return response || new Response('Offline — please check your connection.', {
+          status: 503,
+          statusText: 'Service Unavailable',
+          headers: new Headers({ 'Content-Type': 'text/plain' })
+        });
+      });
+    })
+  );
 });
