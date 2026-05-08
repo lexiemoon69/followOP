@@ -2,304 +2,137 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Get started with FollowOp or see what's new — the networking intelligence app built for people who work the room.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="FollowOp Guide">
 <meta name="theme-color" content="#0F1F3D">
-<title>FollowOp — Guide & What's New</title>
-<link rel="icon" type="image/png" href="/icon-512.png">
-<link rel="apple-touch-icon" href="/icon-512.png">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<meta name="description" content="FollowOp Getting Started Guide — Learn how to use FollowOp to capture contacts, manage clients/referrals, and generate reports.">
+<title>FollowOp — Getting Started Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{--navy:#0F1F3D;--dark:#060d1a;--blue:#2563EB;--blue-light:#5B9BF8;--blue-dim:rgba(37,99,235,0.1);--blue-border:rgba(37,99,235,0.25);--green:#059669;--amber:#F59E0B;--text:#F9FAFB;--mid:rgba(249,250,251,0.65);--light:rgba(249,250,251,0.35);--border:rgba(91,155,248,0.15);--card:rgba(255,255,255,0.04);}
-html{scroll-behavior:smooth;}
-body{background:var(--dark);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.7;min-height:100vh;}
-.nav{position:sticky;top:0;z-index:100;background:rgba(6,13,26,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;color:#fff;letter-spacing:3px;text-decoration:none;}
-.nav-logo span{color:var(--blue-light);}
-.nav-cta{background:var(--blue);color:#fff;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;padding:9px 18px;text-decoration:none;}
-.hero{background:linear-gradient(160deg,var(--navy) 0%,#0d1a38 60%,var(--dark) 100%);padding:56px 24px 48px;text-align:center;border-bottom:1px solid var(--border);}
-.hero-version{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(91,155,248,0.5);margin-bottom:10px;}
-.hero-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--blue-light);margin-bottom:14px;font-weight:500;}
-.hero-title{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:#fff;line-height:1.15;margin-bottom:14px;}
-.hero-title em{font-style:italic;color:var(--blue-light);}
-.hero-sub{font-size:15px;color:var(--mid);max-width:480px;margin:0 auto 28px;line-height:1.8;}
-.hero-btn{display:inline-block;background:var(--blue);color:#fff;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;padding:14px 32px;text-decoration:none;margin-bottom:8px;}
-.hero-reg{display:block;font-size:12px;color:var(--light);margin-top:6px;}
-.hero-reg a{color:var(--blue-light);text-decoration:none;}
-.tabs-wrap{position:sticky;top:57px;z-index:90;background:rgba(6,13,26,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
-.tabs{display:grid;grid-template-columns:1fr 1fr;max-width:700px;margin:0 auto;}
-.tab{padding:16px 20px;text-align:center;cursor:pointer;border:none;background:transparent;color:var(--light);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;transition:color 0.2s;border-bottom:2px solid transparent;-webkit-tap-highlight-color:transparent;}
-.tab.active{color:#fff;border-bottom-color:var(--blue);}
-.tab-pill{font-size:9px;display:inline-block;padding:1px 6px;border-radius:8px;margin-left:5px;font-weight:600;}
-.tab:first-child .tab-pill{background:rgba(5,150,105,0.2);color:#34d399;}
-.tab:last-child .tab-pill{background:rgba(37,99,235,0.2);color:var(--blue-light);}
-.content{max-width:700px;margin:0 auto;padding:0 20px 80px;}
-.tab-panel{display:none;}.tab-panel.active{display:block;}
-.section{padding:36px 0 0;}
-.eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--blue-light);margin-bottom:8px;font-weight:500;}
-.sec-title{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:#fff;line-height:1.2;margin-bottom:14px;}
-.sec-title em{font-style:italic;color:var(--blue-light);}
-.sec-body{font-size:14px;color:var(--mid);line-height:1.9;margin-bottom:20px;}
-.divider{height:1px;background:var(--border);margin:36px 0;}
-.step-hdr{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
-.step-n{width:34px;height:34px;border-radius:50%;background:var(--blue-dim);border:1px solid var(--blue-border);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:var(--blue-light);flex-shrink:0;}
-.step-ttl{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;color:#fff;}
-.step-ttl em{font-style:italic;color:var(--blue-light);}
-.card{background:var(--card);border:1px solid var(--border);padding:16px;margin-bottom:8px;}
-.card-icon{font-size:22px;margin-bottom:8px;display:block;}
-.card-title{font-size:13px;font-weight:500;color:#fff;margin-bottom:5px;}
-.card-body{font-size:12px;color:var(--mid);line-height:1.7;}
-.card-note{font-size:11px;color:var(--light);margin-top:6px;}
-.hl{border-left:3px solid var(--blue);background:var(--blue-dim);padding:16px 18px;margin-bottom:8px;}
-.hl-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--blue-light);margin-bottom:6px;font-weight:500;}
-.hl-body{font-size:13px;color:rgba(249,250,251,0.75);line-height:1.8;}
-.tip{border-left:3px solid var(--amber);background:rgba(245,158,11,0.08);padding:14px 18px;margin-bottom:8px;}
-.tip-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--amber);margin-bottom:5px;font-weight:500;}
-.tip-body{font-size:12px;color:var(--mid);line-height:1.7;}
-.type-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;}
-.type-card{padding:14px;border:1px solid var(--border);}
-.type-card.hot{background:rgba(37,99,235,0.1);border-color:rgba(37,99,235,0.3);}
-.type-card.follow{background:rgba(5,150,105,0.08);border-color:rgba(5,150,105,0.25);}
-.type-card.rec{background:rgba(245,158,11,0.08);border-color:rgba(245,158,11,0.25);}
-.type-card.intel{background:var(--card);}
-.type-icon{font-size:22px;margin-bottom:6px;display:block;}
-.type-name{font-size:12px;font-weight:500;color:#fff;margin-bottom:3px;}
-.type-desc{font-size:11px;color:var(--mid);line-height:1.5;}
-.type-action{font-size:11px;margin-top:6px;font-weight:500;color:var(--blue-light);}
-.type-card.follow .type-action{color:#34d399;}
-.type-card.rec .type-action{color:var(--amber);}
-.type-card.intel .type-action{color:var(--light);}
-.plat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;}
-.plat{background:var(--card);border:1px solid var(--border);padding:14px;}
-.plat-name{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--blue-light);margin-bottom:10px;font-weight:500;}
-.ps{display:flex;gap:6px;margin-bottom:5px;}
-.pn{font-size:11px;font-weight:500;color:var(--blue-light);flex-shrink:0;width:14px;}
-.pt{font-size:11px;color:var(--mid);line-height:1.5;}
-.workflow{margin-bottom:8px;}
-.ws{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid rgba(91,155,248,0.08);}
-.ws:last-child{border-bottom:none;}
-.wn{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:rgba(37,99,235,0.3);line-height:1;flex-shrink:0;width:36px;}
-.wt{font-size:13px;font-weight:500;color:#fff;margin-bottom:3px;}
-.wd{font-size:12px;color:var(--light);line-height:1.6;}
-.input-guide{background:var(--card);border:1px solid var(--border);padding:14px;margin-bottom:8px;}
-.input-row{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid rgba(91,155,248,0.06);align-items:flex-start;}
-.input-row:last-child{border-bottom:none;}
-.input-icon{font-size:18px;flex-shrink:0;width:24px;line-height:1;margin-top:2px;}
-.input-label{font-size:13px;font-weight:500;color:#fff;margin-bottom:2px;}
-.input-desc{font-size:11px;color:var(--light);}
-.feat{background:var(--card);border:1px solid var(--border);padding:16px;margin-bottom:8px;display:flex;gap:14px;align-items:flex-start;}
-.feat-icon{font-size:22px;flex-shrink:0;line-height:1;}
-.badge{display:inline-block;font-size:9px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:2px 7px;border:1px solid;margin-bottom:5px;}
-.badge.purple{background:rgba(124,58,237,0.15);color:#c4b5fd;border-color:rgba(124,58,237,0.3);}
-.badge.green{background:rgba(5,150,105,0.15);color:#34d399;border-color:rgba(5,150,105,0.3);}
-.badge.amber{background:rgba(245,158,11,0.1);color:var(--amber);border-color:rgba(245,158,11,0.25);}
-.feat-title{font-size:13px;font-weight:500;color:#fff;margin-bottom:5px;}
-.feat-desc{font-size:12px;color:var(--mid);line-height:1.7;}
-.feat-limit{font-size:11px;color:var(--light);margin-top:5px;}
-.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px;}
-.plan-card{background:var(--card);border:1px solid var(--border);padding:16px;text-align:center;}
-.plan-card.pro{background:var(--blue-dim);border-color:var(--blue-border);}
-.plan-name{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--blue-light);margin-bottom:6px;font-weight:500;}
-.plan-price{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:#fff;line-height:1;}
-.plan-period{font-size:10px;color:var(--light);margin-bottom:10px;}
-.plan-feature{font-size:11px;color:var(--mid);line-height:1.8;}
-.roadmap-item{background:var(--card);border:1px solid var(--border);padding:14px;margin-bottom:8px;}
-.roadmap-title{font-size:13px;font-weight:500;color:#fff;margin-bottom:4px;}
-.roadmap-desc{font-size:12px;color:var(--mid);line-height:1.6;}
-.roadmap-phase{font-size:10px;color:var(--light);margin-top:5px;font-style:italic;}
-.quote{padding:32px 24px;text-align:center;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:36px 0;}
-.quote-text{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;font-style:italic;color:#fff;line-height:1.5;margin-bottom:8px;}
-.quote-attr{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--blue-light);font-weight:500;}
-.cta-block{background:linear-gradient(135deg,var(--navy),#1a2f5e);border:1px solid var(--blue-border);padding:32px 24px;text-align:center;margin-top:36px;}
-.cta-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:#fff;line-height:1.3;margin-bottom:8px;}
-.cta-title em{font-style:italic;color:var(--blue-light);}
-.cta-sub{font-size:13px;color:var(--mid);margin-bottom:20px;line-height:1.7;}
-.cta-btns{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
-.btn-p{background:var(--blue);color:#fff;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;padding:12px 24px;text-decoration:none;display:inline-block;}
-.btn-s{background:transparent;color:var(--blue-light);font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;padding:12px 24px;text-decoration:none;display:inline-block;border:1px solid var(--blue-border);}
-.loading{text-align:center;padding:60px 24px;color:var(--light);font-size:14px;}
-footer{background:var(--dark);border-top:1px solid var(--border);padding:36px 24px;text-align:center;}
-.ft-logo{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;color:#fff;letter-spacing:3px;margin-bottom:4px;}
-.ft-tag{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--blue-light);margin-bottom:16px;}
-.ft-links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:14px;}
-.ft-link{font-size:11px;color:var(--light);text-decoration:none;}
-.ft-copy{font-size:10px;color:rgba(249,250,251,0.2);line-height:1.8;}
-@media(max-width:480px){.hero-title{font-size:34px;}.type-grid,.plat-grid,.plan-grid{grid-template-columns:1fr;}.cta-btns{flex-direction:column;align-items:center;}}
+:root{--navy:#0F1F3D;--blue:#3B82F6;--text:#1F2937;--mid:#6B7280;--light:#9CA3AF;--border:#E5E7EB;--bg:#F9FAFB;--amber:#F59E0B;--green:#10B981;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;}
+.container{max-width:640px;margin:0 auto;padding:20px 16px 40px;}
+.header{text-align:center;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid var(--border);}
+.logo{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:var(--navy);margin-bottom:4px;}
+.logo em{font-style:italic;color:var(--blue);}
+.subtitle{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--light);font-weight:500;}
+.version-badge{display:inline-block;padding:3px 10px;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;background:rgba(59,130,246,0.1);color:var(--blue);border:1px solid rgba(59,130,246,0.2);border-radius:12px;margin-top:8px;}
+.tab-bar{display:flex;gap:8px;margin-bottom:24px;overflow-x:auto;padding-bottom:4px;}
+.tab-btn{padding:6px 14px;font-size:12px;font-weight:500;border:1px solid var(--border);background:#fff;color:var(--mid);border-radius:20px;cursor:pointer;white-space:nowrap;transition:all 0.2s;}
+.tab-btn:hover{border-color:var(--blue);color:var(--blue);}
+.tab-btn.active{background:var(--blue);color:#fff;border-color:var(--blue);}
+.section{margin-bottom:24px;display:none;}
+.section.active{display:block;}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:var(--navy);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+.item{margin-bottom:16px;background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px;}
+.item-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:6px;}
+.item-body{font-size:13px;color:var(--mid);line-height:1.7;}
+.item-body a{color:var(--blue);text-decoration:none;}
+.item-body a:hover{text-decoration:underline;}
+.badge{display:inline-block;padding:2px 8px;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;margin-right:4px;margin-bottom:4px;border-radius:4px;}
+.badge-hot{background:rgba(59,130,246,0.1);color:var(--blue);border:1px solid rgba(59,130,246,0.2);}
+.badge-follow{background:rgba(16,185,129,0.1);color:var(--green);border:1px solid rgba(16,185,129,0.2);}
+.badge-recommend{background:rgba(245,158,11,0.1);color:var(--amber);border:1px solid rgba(245,158,11,0.2);}
+.badge-intel{background:rgba(107,114,128,0.1);color:var(--mid);border:1px solid rgba(107,114,128,0.2);}
+.back-link{display:inline-block;color:var(--blue);font-size:13px;text-decoration:none;margin-bottom:16px;}
+.back-link:hover{text-decoration:underline;}
+.new-tag{display:inline-block;padding:1px 6px;font-size:9px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;background:rgba(16,185,129,0.1);color:var(--green);border:1px solid rgba(16,185,129,0.2);border-radius:8px;margin-left:6px;vertical-align:middle;}
+@media(max-width:480px){.container{padding:16px 12px 32px;}.logo{font-size:26px;}.section-title{font-size:20px;}}
 </style>
 </head>
 <body>
-
-<nav class="nav">
-  <a href="https://followop.app" class="nav-logo">Follow<span>Op</span></a>
-  <a href="https://followop.app" class="nav-cta">Open App →</a>
-</nav>
-
-<div class="hero">
-  <div id="hero-version" class="hero-version">FollowOp</div>
-  <div class="hero-eyebrow">Your Complete Guide</div>
-  <h1 class="hero-title">Everything you need<br><em>to work the room.</em></h1>
-  <p id="hero-sub" class="hero-sub">Getting started guide and what's new in the latest version.</p>
-  <a href="https://followop.app" class="hero-btn">Open FollowOp →</a>
-  <span class="hero-reg">New here? <a href="https://followop.now.site/home">Register free first →</a></span>
-</div>
-
-<div class="tabs-wrap">
-  <div class="tabs">
-    <button class="tab active" onclick="switchTab('start',this)">Getting Started <span class="tab-pill">New Users</span></button>
-    <button class="tab" onclick="switchTab('new',this)">What's New <span class="tab-pill" id="version-pill">Latest</span></button>
+<div class="container">
+  <a href="/" class="back-link">← Back to FollowOp</a>
+  <div class="header">
+    <div class="logo">Follow<em>Op</em></div>
+    <div class="subtitle">Getting Started Guide</div>
+    <div class="version-badge">v1.3</div>
   </div>
+  <div class="tab-bar" id="tab-bar"></div>
+  <div id="sections-container"></div>
 </div>
-
-<div class="content">
-  <div class="tab-panel active" id="panel-start"><div class="loading">Loading guide...</div></div>
-  <div class="tab-panel" id="panel-new"><div class="loading">Loading guide...</div></div>
-</div>
-
-<footer>
-  <div class="ft-logo">FollowOp</div>
-  <div class="ft-tag">Follow Up. On Point.</div>
-  <div class="ft-links">
-    <a href="https://followop.app" class="ft-link">followop.app</a>
-    <a href="https://followop.now.site/home" class="ft-link">Register Free</a>
-    <a href="https://asheco.now.site/ceo" class="ft-link">Ashé & Ember Co.</a>
-    <a href="mailto:lexie@asheemberco.com" class="ft-link">Support</a>
-  </div>
-  <div class="ft-copy">Built by Lexie Robinson — Community Experience Officer<br>Ashé & Ember Co. · lexie@asheemberco.com<br>© 2026 FollowOp · All rights reserved.</div>
-</footer>
-
 <script>
-var G=null;
+(function(){
+  var NEW_SECTIONS = ['whats-new'];
+  var NEW_ITEMS = [
+    'Calendar view', 'Photo upload', 'Social links', 'Editable event', 'Editable clients',
+    'Enhanced CSV', 'Brief export', 'Back buttons', 'Research from contact',
+    'Editing and deleting events', 'Editing and deleting clients', 'Social links on contacts',
+    'Photo upload for contacts', 'Calendar view for events', 'Brief export options'
+  ];
 
-function switchTab(tab,btn){
-  document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active');});
-  document.querySelectorAll('.tab-panel').forEach(function(p){p.classList.remove('active');});
-  btn.classList.add('active');
-  document.getElementById('panel-'+tab).classList.add('active');
-  window.scrollTo({top:0,behavior:'smooth'});
-}
+  function isNewItem(title) {
+    return NEW_ITEMS.some(function(n){ return title.indexOf(n) > -1; });
+  }
 
-function h(tag,cls,content,style){
-  return '<'+tag+(cls?' class="'+cls+'"':'')+(style?' style="'+style+'"':'')+'>'+content+'</'+tag+'>';
-}
+  fetch('/guide-content.json')
+    .then(function(r){ return r.json(); })
+    .then(function(data){ render(data); })
+    .catch(function(e){ document.getElementById('sections-container').innerHTML = '<p style="color:var(--mid);text-align:center;padding:40px 0;">Could not load guide content. Please try again later.</p>'; });
 
-function badge(text,style){
-  return '<span class="badge '+style+'">'+text+'</span>';
-}
+  function render(data) {
+    var tabBar = document.getElementById('tab-bar');
+    var container = document.getElementById('sections-container');
+    var tabs = [];
+    var sections = [];
 
-function buildInputGuide(items){
-  if(!items||!items.length) return '';
-  var s='<div class="input-guide">';
-  items.forEach(function(it){
-    s+='<div class="input-row"><div class="input-icon">'+it.icon+'</div><div><div class="input-label">'+it.label+'</div><div class="input-desc">'+it.desc+'</div></div></div>';
-  });
-  return s+'</div>';
-}
+    data.sections.forEach(function(sec, i) {
+      var isNew = NEW_SECTIONS.indexOf(sec.id) > -1;
+      var btn = document.createElement('button');
+      btn.className = 'tab-btn' + (i === 0 ? ' active' : '');
+      btn.textContent = sec.title.replace(/ — .*/, '');
+      if (isNew) {
+        var tag = document.createElement('span');
+        tag.className = 'new-tag';
+        tag.textContent = 'NEW';
+        btn.appendChild(tag);
+      }
+      btn.setAttribute('data-section', sec.id);
+      btn.onclick = function() {
+        document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+        document.querySelectorAll('.section').forEach(function(s){ s.classList.remove('active'); });
+        btn.classList.add('active');
+        document.getElementById('section-' + sec.id).classList.add('active');
+      };
+      tabBar.appendChild(btn);
 
-function buildWorkflow(steps){
-  if(!steps||!steps.length) return '';
-  var s='<div class="workflow">';
-  steps.forEach(function(st){
-    s+='<div class="ws"><div class="wn">'+st.n+'</div><div><div class="wt">'+st.title+'</div><div class="wd">'+st.desc+'</div></div></div>';
-  });
-  return s+'</div>';
-}
+      var div = document.createElement('div');
+      div.className = 'section' + (i === 0 ? ' active' : '');
+      div.id = 'section-' + sec.id;
 
-function buildStart(gs){
-  var html='';
-  gs.steps.forEach(function(step,i){
-    if(i>0) html+='<div class="divider"></div>';
-    html+='<div class="section">';
-    html+='<div class="step-hdr"><div class="step-n">'+step.number+'</div><div class="step-ttl">'+step.title+'</div></div>';
-    html+='<p class="sec-body">'+step.body+'</p>';
-    if(step.platforms){
-      html+='<div class="plat-grid">';
-      step.platforms.forEach(function(p){
-        html+='<div class="plat"><div class="plat-name">'+p.name+'</div>';
-        p.steps.forEach(function(s,idx){ html+='<div class="ps"><span class="pn">'+(idx+1)+'.</span><span class="pt">'+s+'</span></div>'; });
-        html+='</div>';
+      var h2 = document.createElement('div');
+      h2.className = 'section-title';
+      h2.textContent = sec.title;
+      div.appendChild(h2);
+
+      sec.items.forEach(function(item) {
+        var card = document.createElement('div');
+        card.className = 'item';
+        var titleEl = document.createElement('div');
+        titleEl.className = 'item-title';
+        titleEl.textContent = item.title;
+        if (isNewItem(item.title)) {
+          var nt = document.createElement('span');
+          nt.className = 'new-tag';
+          nt.textContent = 'NEW';
+          titleEl.appendChild(nt);
+        }
+        card.appendChild(titleEl);
+        var bodyEl = document.createElement('div');
+        bodyEl.className = 'item-body';
+        bodyEl.innerHTML = item.body.replace(/(lexie@asheemberco\.com)/g, '<a href="mailto:$1">$1</a>').replace(/(asheco\.now\.site\/ceo)/g, '<a href="https://$1" target="_blank">$1</a>');
+        card.appendChild(bodyEl);
+        div.appendChild(card);
       });
-      html+='</div>';
-    }
-    if(step.types){
-      html+='<div class="type-grid">';
-      step.types.forEach(function(t){
-        html+='<div class="type-card '+t.style+'"><span class="type-icon">'+t.icon+'</span><div class="type-name">'+t.name+'</div><div class="type-desc">'+t.desc+'</div><div class="type-action">→ '+t.action+'</div></div>';
-      });
-      html+='</div>';
-    }
-    if(step.modes){
-      html+='<div class="hl"><div class="hl-label">'+step.modes[0].name+'</div><div class="hl-body">'+step.modes[0].desc+'</div></div>';
-      html+='<div class="card" style="border-left:3px solid rgba(91,155,248,0.3);"><div class="card-title">'+step.modes[1].name+'</div><div class="card-body">'+step.modes[1].desc+'</div></div>';
-    }
-    if(step.tip) html+='<div class="tip"><div class="tip-label">💡 Tip</div><div class="tip-body">'+step.tip+'</div></div>';
-    if(step.input_guide) html+=buildInputGuide(step.input_guide);
-    if(step.steps&&step.number!=='1') html+=buildWorkflow(step.steps);
-    if(step.returns){
-      html+='<div class="card" style="background:rgba(37,99,235,0.08);border-color:rgba(37,99,235,0.2);"><div class="card-title">What you get back</div><div class="card-body" style="line-height:2.1;">';
-      step.returns.forEach(function(r){ html+='✦ &nbsp;'+r+'<br>'; });
-      html+='</div></div>';
-    }
-    if(step.note) html+='<div class="tip"><div class="tip-label">📝 Note</div><div class="tip-body">'+step.note+'</div></div>';
-    if(step.limit) html+='<div style="font-size:11px;color:var(--light);padding:8px 0;">'+step.limit+'</div>';
-    if(step.exports){
-      step.exports.forEach(function(e){
-        html+='<div class="card"><span class="card-icon">'+e.icon+'</span><div class="card-title">'+e.name+'</div><div class="card-body">'+e.desc+'</div>';
-        if(e.limit) html+='<div class="card-note">'+e.limit+'</div>';
-        html+='</div>';
-      });
-    }
-    html+='</div>';
-  });
-  // Plans
-  html+='<div class="divider"></div><div class="section"><div class="eyebrow">Upgrade When Ready</div><div class="sec-title">Three plans. <em>One mission.</em></div><div class="plan-grid">';
-  gs.plans.forEach(function(p){
-    html+='<div class="plan-card'+(p.name==='Pro'?' pro':'')+'"><div class="plan-name">'+p.name+'</div><div class="plan-price">'+p.price+'</div><div class="plan-period">'+p.period+'</div><div class="plan-feature">';
-    p.features.forEach(function(f){ html+=f+'<br>'; });
-    html+='</div></div>';
-  });
-  html+='</div>';
-  html+='<div class="cta-btns" style="margin-bottom:8px;"><a href="'+G.links.pro_payment+'" class="btn-p">Try Pro Free — 30 Days →</a><a href="'+G.links.standard_payment+'" class="btn-s">Get Standard →</a></div>';
-  html+='<p style="font-size:11px;color:var(--light);text-align:center;margin-top:6px;">Pro trial requires a card — cancel anytime before day 30</p></div>';
-  html+='<div class="quote"><div class="quote-text">"The one thing AI cannot do for you — be in the room."</div><div class="quote-attr">Lexie Robinson — Community Experience Officer, Ashé & Ember Co.</div></div>';
-  if(gs.disclaimer) html+='<div style="margin-top:24px;padding:14px;background:rgba(255,255,255,0.03);border:1px solid rgba(91,155,248,0.1);font-size:11px;color:var(--light);line-height:1.7;"><strong style="color:var(--mid);display:block;margin-bottom:4px;">⚠️ AI Disclaimer</strong>'+gs.disclaimer+'</div>';
-  return html;
-}
 
-function buildNew(wn){
-  var html='<div class="section"><div class="eyebrow">Version '+G.version+' · '+G.updated+'</div><div class="sec-title">Everything that\'s <em>new</em></div><p class="sec-body">'+wn.subtitle+'</p></div>';
-  wn.features.forEach(function(f,i){
-    if(i>0&&i%3===0) html+='<div class="divider"></div>';
-    html+='<div class="feat"><div class="feat-icon">'+f.icon+'</div><div>'+badge(f.badge,f.badge_style)+'<div class="feat-title">'+f.title+'</div><div class="feat-desc">'+f.desc+'</div>';
-    if(f.limit) html+='<div class="feat-limit">'+f.limit+'</div>';
-    if(f.steps) html+=buildWorkflow(f.steps);
-    if(f.input_guide) html+=buildInputGuide(f.input_guide);
-    html+='</div></div>';
-  });
-  html+='<div class="divider"></div><div class="section"><div class="eyebrow">Coming Next</div><div class="sec-title">What\'s on the <em>roadmap</em></div>';
-  wn.roadmap.forEach(function(r){
-    html+='<div class="roadmap-item"><div class="roadmap-title">'+r.icon+' '+r.title+'</div><div class="roadmap-desc">'+r.desc+'</div><div class="roadmap-phase">'+r.phase+'</div></div>';
-  });
-  html+='</div>';
-  html+='<div class="quote"><div class="quote-text">"Follow Up. On Point. Because the room is everywhere."</div><div class="quote-attr">FollowOp — Built by Ashé & Ember Co.</div></div>';
-  html+='<div class="cta-block"><div class="cta-title">Ready to use <em>what\'s new?</em></div><div class="cta-sub">Everything in v'+G.version+' is live right now. Open the app and start exploring.</div><div class="cta-btns"><a href="'+G.links.app+'" class="btn-p">Open FollowOp →</a><a href="'+G.links.pro_payment+'" class="btn-s">Try Pro Free →</a></div></div>';
-  return html;
-}
-
-fetch('/guide-content.json?v='+Date.now())
-  .then(function(r){ return r.json(); })
-  .then(function(data){
-    G=data;
-    document.getElementById('hero-version').textContent='FollowOp — v'+G.version+' · Updated '+G.updated;
-    document.getElementById('hero-sub').textContent=G.getting_started.subtitle;
-    document.getElementById('version-pill').textContent='v'+G.version;
-    document.getElementById('panel-start').innerHTML=buildStart(G.getting_started);
-    document.getElementById('panel-new').innerHTML=buildNew(G.whats_new);
-  })
-  .catch(function(err){
-    document.getElementById('panel-start').innerHTML='<div class="loading">Could not load guide. <a href="https://followop.app" style="color:var(--blue-light);">Open the app →</a></div>';
-    document.getElementById('panel-new').innerHTML='<div class="loading">Could not load guide. <a href="https://followop.app" style="color:var(--blue-light);">Open the app →</a></div>';
-  });
+      container.appendChild(div);
+    });
+  }
+})();
 </script>
 </body>
 </html>
