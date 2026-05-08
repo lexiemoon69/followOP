@@ -378,7 +378,7 @@ body.dark strong{color:#FFFFFF!important;}
         <div class="stat"><div class="stat-num" id="s-events">0</div><div class="stat-lbl">Events</div></div>
         <div class="stat"><div class="stat-num" id="s-contacts">0</div><div class="stat-lbl">Contacts</div></div>
         <div class="stat"><div class="stat-num" id="s-intros">0</div><div class="stat-lbl">Hot Intros</div></div>
-        <div class="stat"><div class="stat-num" id="s-clients">0</div><div class="stat-lbl">Clients</div></div>
+        <div class="stat"><div class="stat-num" id="s-clients">0</div><div class="stat-lbl">Clients/Referrals</div></div>
       </div>
     </div>
     <div>
@@ -397,6 +397,7 @@ body.dark strong{color:#FFFFFF!important;}
       <div class="qa-grid">
         <button class="qa-btn hot" onclick="openModal('cap-modal')"><span class="qa-icon">⚡</span><span class="qa-lbl">Hot Intro</span><span class="qa-desc">Full contact capture</span></button>
         <button class="qa-btn" onclick="showView('read',document.querySelectorAll('.nav-item')[4])"><span class="qa-icon">🔍</span><span class="qa-lbl">Read The Room</span><span class="qa-desc">Understand who you met</span></button>
+        <button class="qa-btn" onclick="showCalendar()"><span class="qa-icon">📅</span><span class="qa-lbl">Calendar</span><span class="qa-desc">Monthly event view</span></button>
         <button class="qa-btn" onclick="openModal('ev-modal')"><span class="qa-icon">📍</span><span class="qa-lbl">Log Event</span><span class="qa-desc">Record today's event</span></button>
         <button class="qa-btn" onclick="openModal('ser-modal')" style="border-color:var(--amber);"><span class="qa-icon">📊</span><span class="qa-lbl" style="color:var(--amber);">Event Report</span><span class="qa-desc">Immediate follow-up</span></button>
         <button class="qa-btn" onclick="openVibeModal()" style="border-color:rgba(124,58,237,0.4);"><span class="qa-icon">🏛</span><span class="qa-lbl" style="color:#a78bfa;">Vibe The Room</span><span class="qa-desc">Read the room energy</span></button>
@@ -439,7 +440,7 @@ body.dark strong{color:#FFFFFF!important;}
   <!-- CLIENTS - PRO ONLY -->
   <div class="view" id="view-clients">
     <div style="display:flex;justify-content:space-between;align-items:center;">
-      <div class="sec-label">Active Clients</div>
+      <div class="sec-label">Active Clients/Referrals</div>
       <button class="btn-p" style="width:auto;padding:5px 12px;margin:0;font-size:10px;" onclick="openModal('cl-modal')">+ Add</button>
     </div>
     <div id="clients-list" style="display:flex;flex-direction:column;gap:10px;"></div>
@@ -449,7 +450,10 @@ body.dark strong{color:#FFFFFF!important;}
   <div class="view" id="view-events">
     <div style="display:flex;justify-content:space-between;align-items:center;">
       <div class="sec-label">Event Log</div>
-      <button class="btn-p" style="width:auto;padding:5px 12px;margin:0;font-size:10px;" onclick="openModal('ev-modal')">+ Log</button>
+      <div style="display:flex;gap:6px;">
+        <button class="btn-p" style="width:auto;padding:5px 12px;margin:0;font-size:10px;background:var(--panel);border:1px solid var(--border);color:var(--blue);" onclick="showCalendar()">📅 Calendar</button>
+        <button class="btn-p" style="width:auto;padding:5px 12px;margin:0;font-size:10px;" onclick="openModal('ev-modal')">+ Log</button>
+      </div>
     </div>
     <div id="events-list" style="display:flex;flex-direction:column;gap:8px;"></div>
   </div>
@@ -589,7 +593,7 @@ body.dark strong{color:#FFFFFF!important;}
         <span class="help-badge" style="background:rgba(245,158,11,0.1);color:var(--amber);border:1px solid rgba(245,158,11,0.2);">💡 Recommend</span> Great for a client or colleague.<br>
         <span class="help-badge badge-done">🔍 Intel</span> Good to know — keep in your network.
       </div></div>
-      <div class="help-item"><div class="help-item-title">Adding a client on the fly</div><div class="help-item-body">In the contact capture form tap the "Connect to client?" dropdown and select "+ Add New Client". A quick form slides up — enter the brand name and tier. Complete their full profile from the Clients tab later.</div></div>
+      <div class="help-item"><div class="help-item-title">Adding a client on the fly</div><div class="help-item-body">In the contact capture form tap the "Connect to client?" dropdown and select "+ Add New Client". A quick form slides up — enter the brand name and tier. Complete their full profile from the Clients/Referrals tab later.</div></div>
     </div>
 
     <div class="help-section">
@@ -626,8 +630,8 @@ body.dark strong{color:#FFFFFF!important;}
     </div>
 
     <div class="help-section">
-      <div class="help-section-title">Clients — Pro Only</div>
-      <div class="help-item"><div class="help-item-title">Adding a client</div><div class="help-item-body">Tap the Clients tab → Add. Fill in brand name, contact name, service tier, elevator pitch, target rooms and contacts, and what not to say. Add their social media handles so you can tag them in posts from the room instantly.</div></div>
+      <div class="help-section-title">Clients/Referrals — Pro Only</div>
+      <div class="help-item"><div class="help-item-title">Adding a client/referral</div><div class="help-item-body">Tap the Clients/Referrals tab → Add. Fill in brand name, contact name, service tier, elevator pitch, target rooms and contacts, and what not to say. Add their social media handles so you can tag them in posts from the room instantly.</div></div>
       <div class="help-item"><div class="help-item-title">Service tiers</div><div class="help-item-body">30-Day Pilot — $2,000. In The Room — $1,500/month. Maximum Presence — $3,000/month. Government — custom. Set the tier when adding a client — it appears in all reports.</div></div>
       <div class="help-item"><div class="help-item-title">Client color coding</div><div class="help-item-body">Each client gets a color automatically. Contact cards show a colored tag when linked to a client — easy visual sorting at a glance.</div></div>
     </div>
@@ -672,7 +676,7 @@ body.dark strong{color:#FFFFFF!important;}
 <div class="bottom-nav">
   <button class="nav-item active" onclick="showView('dashboard',this)"><span class="nav-icon">⌂</span><span class="nav-label">Home</span></button>
   <button class="nav-item" onclick="showView('contacts',this)"><span class="nav-icon">👤</span><span class="nav-label">Contacts</span></button>
-  <button class="nav-item" onclick="showViewPro('clients',this)"><span class="nav-icon">★</span><span class="nav-label">Clients</span></button>
+  <button class="nav-item" onclick="showViewPro('clients',this)"><span class="nav-icon">★</span><span class="nav-label">Clients/Referrals</span></button>
   <button class="nav-item" onclick="showView('events',this)"><span class="nav-icon">📍</span><span class="nav-label">Events</span></button>
   <button class="nav-item" onclick="showView('read',this)"><span class="nav-icon">🔍</span><span class="nav-label">Read</span></button>
   <button class="nav-item" onclick="openModal('research-modal');document.getElementById('research-name').textContent='Research any contact';document.getElementById('research-results').style.display='none';document.getElementById('research-status').style.display='none';document.getElementById('research-save-btn').style.display='none';document.getElementById('research-close-btn').style.display='none';document.getElementById('research-inputs').style.display='block';window._researchContactId=null;"><span class="nav-icon">🌐</span><span class="nav-label">Research</span></button>
@@ -686,7 +690,7 @@ body.dark strong{color:#FFFFFF!important;}
 <div class="overlay" id="quick-client-modal">
   <div class="sheet">
     <div class="handle"></div>
-    <div class="modal-title">Quick <em>Add Client</em></div>
+    <div class="modal-title">Quick <em>Add Client/Referral</em></div>
     <div class="modal-sub">Add a client on the fly — complete their profile later</div>
     <div class="field"><label>Brand / Business Name *</label><input type="text" id="qcl-name" placeholder="Client's business name" autocomplete="off"></div>
     <div class="field"><label>Contact Name</label><input type="text" id="qcl-contact" placeholder="Owner or decision maker" autocomplete="off"></div>
@@ -699,7 +703,7 @@ body.dark strong{color:#FFFFFF!important;}
         <option value="govt">Government</option>
       </select>
     </div>
-    <div style="font-size:12px;color:var(--light);margin-bottom:12px;line-height:1.6;">You can add their full details — social links, pitch, target rooms — from the Clients tab later.</div>
+    <div style="font-size:12px;color:var(--light);margin-bottom:12px;line-height:1.6;">You can add their full details — social links, pitch, target rooms — from the Clients/Referrals tab later.</div>
     <button class="btn-p blue" onclick="saveQuickClient()">Add Client</button>
     <button class="btn-s" onclick="closeModal('quick-client-modal')">Cancel</button>
   </div>
@@ -730,6 +734,7 @@ body.dark strong{color:#FFFFFF!important;}
 <div class="overlay" id="cap-modal">
   <div class="sheet">
     <div class="handle"></div>
+    <button onclick="closeModal('cap-modal')" style="background:none;border:none;color:var(--blue);font-size:14px;cursor:pointer;padding:0 0 8px;font-family:DM Sans,sans-serif;">← Back</button>
     <div class="modal-title">Capture <em>Contact</em></div>
     <div class="modal-sub">Scan a card or fill in manually</div>
     <div class="draft-bar" id="draft-bar">📝 Draft restored<button onclick="clearDraft()" style="background:none;border:none;color:var(--amber);cursor:pointer;font-size:12px;margin-left:8px;">Clear</button></div>
@@ -777,6 +782,15 @@ body.dark strong{color:#FFFFFF!important;}
       <div class="field"><label>Event</label><input type="text" id="c-event" placeholder="Which event" oninput="autoDraft()" autocomplete="off"></div>
     </div>
     <div class="field"><label>Website / LinkedIn</label><input type="text" id="c-website" placeholder="website or linkedin.com/in/..." oninput="autoDraft()" autocomplete="off"></div>
+    <div class="sec-label" style="margin-top:2px;font-size:10px;">Social Links (optional)</div>
+    <div class="field-row">
+      <div class="field"><label>Instagram</label><input type="text" id="c-instagram" placeholder="@handle" autocomplete="off"></div>
+      <div class="field"><label>Twitter / X</label><input type="text" id="c-twitter" placeholder="@handle" autocomplete="off"></div>
+    </div>
+    <div class="field-row">
+      <div class="field"><label>Facebook</label><input type="text" id="c-facebook" placeholder="facebook.com/..." autocomplete="off"></div>
+      <div class="field"><label>LinkedIn URL</label><input type="text" id="c-linkedin" placeholder="linkedin.com/in/..." autocomplete="off"></div>
+    </div>
     <div class="field">
       <label>Their Photo</label>
       <div style="display:flex;align-items:center;gap:10px;">
@@ -790,7 +804,7 @@ body.dark strong{color:#FFFFFF!important;}
         </div>
       </div>
     </div>
-    <div class="field"><label>Connect to client?</label><select id="c-client"><option value="">Select client...</option></select></div>
+    <div class="field"><label>Connect to client/referral?</label><select id="c-client"><option value="">Select client/referral...</option></select></div>
     <div class="field">
       <label>Type of contact *</label>
       <div class="radio-group">
@@ -810,6 +824,7 @@ body.dark strong{color:#FFFFFF!important;}
 <div class="overlay" id="edit-modal">
   <div class="sheet">
     <div class="handle"></div>
+    <button onclick="closeModal('edit-modal')" style="background:none;border:none;color:var(--blue);font-size:14px;cursor:pointer;padding:0 0 8px;font-family:DM Sans,sans-serif;">← Back</button>
     <div class="modal-title">Edit <em>Contact</em></div>
     <div class="modal-sub">Update contact information</div>
     <input type="hidden" id="edit-id">
@@ -821,6 +836,34 @@ body.dark strong{color:#FFFFFF!important;}
     <div class="field"><label>Phone / Email</label><input type="text" id="edit-contact" autocomplete="off"></div>
     <div class="field"><label>Website / LinkedIn</label><input type="text" id="edit-website" autocomplete="off"></div>
     <div class="field"><label>Event</label><input type="text" id="edit-event" autocomplete="off"></div>
+    <div class="field"><label>Connect to client/referral?</label><select id="edit-client-select"><option value="">No client/referral</option></select></div>
+    <div class="field"><label>Type</label>
+      <select id="edit-type">
+        <option value="hot">⚡ Hot Intro</option>
+        <option value="follow">📌 Follow Up</option>
+        <option value="recommend">💡 Recommend</option>
+        <option value="intel">🔍 Intel</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Photo</label>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="width:48px;height:48px;border-radius:50%;background:var(--blue-dim);border:2px solid var(--blue-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;">
+          <span style="font-size:18px;" id="edit-photo-icon">📸</span>
+          <img id="edit-photo-img" style="display:none;width:100%;height:100%;object-fit:cover;">
+        </div>
+        <label style="display:block;padding:8px 12px;background:var(--navy);color:#fff;font-size:11px;cursor:pointer;font-family:DM Sans,sans-serif;letter-spacing:0.08em;">📷 Change Photo<input type="file" accept="image/*" onchange="setEditContactPhoto(this)" style="display:none;"></label>
+      </div>
+    </div>
+    <div class="sec-label" style="margin-top:4px;">Social Links</div>
+    <div class="field-row">
+      <div class="field"><label>LinkedIn</label><input type="text" id="edit-linkedin" placeholder="linkedin.com/in/..." autocomplete="off"></div>
+      <div class="field"><label>Instagram</label><input type="text" id="edit-instagram" placeholder="@handle" autocomplete="off"></div>
+    </div>
+    <div class="field-row">
+      <div class="field"><label>Twitter / X</label><input type="text" id="edit-twitter" placeholder="@handle" autocomplete="off"></div>
+      <div class="field"><label>Facebook</label><input type="text" id="edit-facebook" placeholder="facebook.com/..." autocomplete="off"></div>
+    </div>
     <div class="field"><label>Notes</label><textarea id="edit-notes"></textarea></div>
     <button class="btn-p blue" onclick="saveEdit()">Save Changes</button>
     <button class="btn-s" onclick="closeModal('edit-modal')">Cancel</button>
@@ -831,6 +874,7 @@ body.dark strong{color:#FFFFFF!important;}
 <div class="overlay" id="ev-modal">
   <div class="sheet">
     <div class="handle"></div>
+    <button onclick="closeModal('ev-modal')" style="background:none;border:none;color:var(--blue);font-size:14px;cursor:pointer;padding:0 0 8px;font-family:DM Sans,sans-serif;">← Back</button>
     <div class="modal-title">Log <em>Event</em></div>
     <div class="modal-sub">Record after every event you attend</div>
     <div class="field"><label>Event Name *</label><input type="text" id="e-name" placeholder="Name of the event" autocomplete="off"></div>
@@ -838,7 +882,7 @@ body.dark strong{color:#FFFFFF!important;}
       <div class="field"><label>Date</label><input type="date" id="e-date"></div>
       <div class="field"><label>Venue</label><input type="text" id="e-venue" placeholder="Where it was" autocomplete="off"></div>
     </div>
-    <div class="field"><label>Client represented</label><select id="e-client"><option value="">Select...</option><option value="general">General</option></select></div>
+    <div class="field"><label>Client/Referral represented</label><select id="e-client"><option value="">Select...</option><option value="general">General</option></select></div>
     <div class="field-row">
       <div class="field"><label>Conversations</label><input type="number" id="e-convos" placeholder="0" min="0"></div>
       <div class="field"><label>Contacts captured</label><input type="number" id="e-cc" placeholder="0" min="0"></div>
@@ -868,8 +912,9 @@ body.dark strong{color:#FFFFFF!important;}
 <div class="overlay" id="cl-modal">
   <div class="sheet">
     <div class="handle"></div>
-    <div class="modal-title">Add <em>Client</em></div>
-    <div class="modal-sub">New CEO service client</div>
+    <button onclick="closeModal('cl-modal')" style="background:none;border:none;color:var(--blue);font-size:14px;cursor:pointer;padding:0 0 8px;font-family:DM Sans,sans-serif;">← Back</button>
+    <div class="modal-title">Add <em>Client/Referral</em></div>
+    <div class="modal-sub">New CEO service client or referral partner</div>
     <div class="field">
       <label>Brand Logo or Photo</label>
       <div style="display:flex;align-items:center;gap:12px;margin-top:4px;">
@@ -932,7 +977,7 @@ body.dark strong{color:#FFFFFF!important;}
       <div class="radio-item selected" onclick="setSort('date',this)"><input type="radio" name="sort" value="date" checked><label>Most Recent First</label></div>
       <div class="radio-item" onclick="setSort('name',this)"><input type="radio" name="sort" value="name"><label>Name A–Z</label></div>
       <div class="radio-item" onclick="setSort('type',this)"><input type="radio" name="sort" value="type"><label>By Type — Hot Intros First</label></div>
-      <div class="radio-item" onclick="setSort('client',this)"><input type="radio" name="sort" value="client"><label>By Client</label></div>
+      <div class="radio-item" onclick="setSort('client',this)"><input type="radio" name="sort" value="client"><label>By Client/Referral</label></div>
       <div class="radio-item" onclick="setSort('event',this)"><input type="radio" name="sort" value="event"><label>By Event</label></div>
     </div>
     <button class="btn-p blue" onclick="closeModal('sort-modal');renderContacts();">Apply</button>
@@ -944,6 +989,7 @@ body.dark strong{color:#FFFFFF!important;}
 <div class="overlay" id="wr-modal">
   <div class="sheet">
     <div class="handle"></div>
+    <button onclick="closeModal('wr-modal')" style="background:none;border:none;color:var(--blue);font-size:14px;cursor:pointer;padding:0 0 8px;font-family:DM Sans,sans-serif;">← Back</button>
     <div class="modal-title">Weekly <em>Report</em></div>
     <div class="modal-sub">Generate for a client</div>
     <div class="field"><label>Select Client *</label><select id="wr-client"><option value="">Choose client...</option></select></div>
@@ -972,6 +1018,7 @@ body.dark strong{color:#FFFFFF!important;}
 <div class="overlay" id="mr-modal">
   <div class="sheet">
     <div class="handle"></div>
+    <button onclick="closeModal('mr-modal')" style="background:none;border:none;color:var(--blue);font-size:14px;cursor:pointer;padding:0 0 8px;font-family:DM Sans,sans-serif;">← Back</button>
     <div class="modal-title">Monthly <em>Summary</em></div>
     <div class="modal-sub">End of month report</div>
     <div class="field"><label>Select Client *</label><select id="mr-client"><option value="">Choose client...</option></select></div>
@@ -1052,6 +1099,7 @@ body.dark strong{color:#FFFFFF!important;}
 <div class="overlay" id="research-modal">
   <div class="sheet">
     <div class="handle"></div>
+    <button onclick="closeModal('research-modal')" style="background:none;border:none;color:var(--blue);font-size:14px;cursor:pointer;padding:0 0 8px;font-family:DM Sans,sans-serif;">← Back</button>
     <div class="modal-title">🔍 Contact <em>Intelligence</em></div>
     <div class="modal-sub" id="research-name">Research any contact</div>
 
@@ -1092,6 +1140,7 @@ body.dark strong{color:#FFFFFF!important;}
 <div class="overlay" id="ser-modal">
   <div class="sheet">
     <div class="handle"></div>
+    <button onclick="closeModal('ser-modal')" style="background:none;border:none;color:var(--blue);font-size:14px;cursor:pointer;padding:0 0 8px;font-family:DM Sans,sans-serif;">← Back</button>
     <div class="modal-title">⚡ Special Event <em>Report</em></div>
     <div class="modal-sub">Generate immediately after an event — send within the hour</div>
 
@@ -1167,6 +1216,136 @@ body.dark strong{color:#FFFFFF!important;}
   </div>
 </div>
 
+
+<!-- EDIT CLIENT/REFERRAL MODAL -->
+<div class="overlay" id="ecl-modal">
+  <div class="sheet">
+    <div class="handle"></div>
+    <button onclick="closeModal('ecl-modal')" style="background:none;border:none;color:var(--blue);font-size:14px;cursor:pointer;padding:0 0 8px;font-family:DM Sans,sans-serif;">← Back</button>
+    <div class="modal-title">Edit <em>Client/Referral</em></div>
+    <div class="modal-sub">Update client or referral details</div>
+    <div class="field">
+      <label>Brand Logo or Photo</label>
+      <div style="display:flex;align-items:center;gap:12px;margin-top:4px;">
+        <div id="ecl-photo-preview" style="width:56px;height:56px;border-radius:8px;background:var(--blue-dim);border:2px solid var(--blue-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;">
+          <span style="font-size:22px;" id="ecl-photo-icon">🏢</span>
+          <img id="ecl-photo-img" style="display:none;width:100%;height:100%;object-fit:cover;">
+        </div>
+        <label style="display:block;padding:10px 16px;text-align:center;background:var(--navy);color:#fff;font-size:12px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.08em;flex:1;">
+          📷 Change Photo<input type="file" accept="image/*" onchange="setEditClientPhoto(this)" style="display:none;">
+        </label>
+      </div>
+    </div>
+    <div class="field"><label>Brand / Business Name *</label><input type="text" id="ecl-name" autocomplete="off"></div>
+    <div class="field"><label>Contact Name</label><input type="text" id="ecl-contact" autocomplete="off"></div>
+    <div class="field-row">
+      <div class="field"><label>Email</label><input type="email" id="ecl-email" autocomplete="off"></div>
+      <div class="field"><label>Phone</label><input type="tel" id="ecl-phone" autocomplete="off"></div>
+    </div>
+    <div class="field-row">
+      <div class="field"><label>Tier</label>
+        <select id="ecl-tier">
+          <option value="pilot">30-Day Pilot — $2,000</option>
+          <option value="intheroom">In The Room — $1,500/mo</option>
+          <option value="maxpresence">Maximum Presence — $3,000/mo</option>
+          <option value="custom">Custom</option>
+          <option value="govt">Government</option>
+        </select>
+      </div>
+      <div class="field"><label>Monthly Rate ($)</label><input type="number" id="ecl-rate"></div>
+    </div>
+    <div class="field"><label>Elevator pitch</label><textarea id="ecl-pitch"></textarea></div>
+    <div class="field"><label>Target rooms and contacts</label><textarea id="ecl-rooms"></textarea></div>
+    <div class="field"><label>Do NOT say</label><textarea id="ecl-avoid"></textarea></div>
+    <div class="field"><label>Start Date</label><input type="date" id="ecl-start"></div>
+    <div class="sec-label" style="margin-top:4px;">Social Links</div>
+    <div class="field-row">
+      <div class="field"><label>LinkedIn</label><input type="text" id="ecl-linkedin" autocomplete="off"></div>
+      <div class="field"><label>Instagram</label><input type="text" id="ecl-instagram" autocomplete="off"></div>
+    </div>
+    <div class="field-row">
+      <div class="field"><label>Facebook</label><input type="text" id="ecl-facebook" autocomplete="off"></div>
+      <div class="field"><label>Twitter / X</label><input type="text" id="ecl-twitter" autocomplete="off"></div>
+    </div>
+    <div class="field-row">
+      <div class="field"><label>TikTok</label><input type="text" id="ecl-tiktok" autocomplete="off"></div>
+      <div class="field"><label>Website</label><input type="text" id="ecl-website" autocomplete="off"></div>
+    </div>
+    <button class="btn-p blue" onclick="saveEditClient()">Save Changes</button>
+    <button class="btn-s" onclick="closeModal('ecl-modal')">Cancel</button>
+  </div>
+</div>
+
+<!-- EDIT EVENT MODAL -->
+<div class="overlay" id="ee-modal">
+  <div class="sheet">
+    <div class="handle"></div>
+    <button onclick="closeModal('ee-modal')" style="background:none;border:none;color:var(--blue);font-size:14px;cursor:pointer;padding:0 0 8px;font-family:DM Sans,sans-serif;">← Back</button>
+    <div class="modal-title">Edit <em>Event</em></div>
+    <div class="modal-sub">Update event details</div>
+    <div class="field"><label>Event Name *</label><input type="text" id="ee-name" autocomplete="off"></div>
+    <div class="field-row">
+      <div class="field"><label>Date</label><input type="date" id="ee-date"></div>
+      <div class="field"><label>Venue</label><input type="text" id="ee-venue" autocomplete="off"></div>
+    </div>
+    <div class="field"><label>Client/Referral represented</label><select id="ee-client"><option value="">Select...</option><option value="general">General</option></select></div>
+    <div class="field-row">
+      <div class="field"><label>Conversations</label><input type="number" id="ee-convos" min="0"></div>
+      <div class="field"><label>Contacts captured</label><input type="number" id="ee-cc" min="0"></div>
+    </div>
+    <div class="field-row">
+      <div class="field"><label>Hot intros made</label><input type="number" id="ee-intros" min="0"></div>
+      <div class="field"><label>Social posts</label><input type="number" id="ee-posts" min="0"></div>
+    </div>
+    <div class="field"><label>What happened in the room?</label><textarea id="ee-summary"></textarea></div>
+    <div class="field"><label>Community intel</label><textarea id="ee-intel"></textarea></div>
+    <div class="field"><label>Pass-through costs ($)</label><input type="text" id="ee-costs"></div>
+    <div class="field"><label>Event fit?</label>
+      <select id="ee-fit">
+        <option value="5">Excellent — definitely repeat</option>
+        <option value="4">Good — worth attending again</option>
+        <option value="3">OK — maybe for specific clients</option>
+        <option value="2">Below average</option>
+        <option value="1">Poor fit</option>
+      </select>
+    </div>
+    <button class="btn-p blue" onclick="saveEditEvent()">Save Changes</button>
+    <button class="btn-s" onclick="closeModal('ee-modal')">Cancel</button>
+  </div>
+</div>
+
+<!-- BRIEF EXPORT MODAL -->
+<div class="overlay" id="brief-export-modal">
+  <div class="sheet">
+    <div class="handle"></div>
+    <button onclick="closeModal('brief-export-modal')" style="background:none;border:none;color:var(--blue);font-size:14px;cursor:pointer;padding:0 0 8px;font-family:DM Sans,sans-serif;">← Back</button>
+    <div class="modal-title">📄 Export <em>Brief</em></div>
+    <div class="modal-sub">Report generated successfully! Choose how to export:</div>
+    <div style="background:var(--panel);border:1px solid var(--border);padding:12px;margin:12px 0;max-height:200px;overflow-y:auto;">
+      <pre id="brief-export-preview" style="font-size:11px;color:var(--mid);line-height:1.7;white-space:pre-wrap;font-family:DM Sans,sans-serif;"></pre>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <button class="btn-p blue" onclick="briefDownload()" style="width:100%;">📥 Download as File</button>
+      <button class="btn-p" onclick="briefCopy()" style="width:100%;background:var(--navy);">📋 Copy to Clipboard</button>
+      <button class="btn-p" onclick="briefEmail()" style="width:100%;background:rgba(16,185,129,0.9);">✉️ Send via Email</button>
+    </div>
+    <button class="btn-s" onclick="closeModal('brief-export-modal')" style="margin-top:8px;">Close</button>
+  </div>
+</div>
+
+<!-- CALENDAR MODAL -->
+<div class="overlay" id="calendar-modal">
+  <div class="sheet" style="max-width:500px;">
+    <div class="handle"></div>
+    <button onclick="closeModal('calendar-modal')" style="background:none;border:none;color:var(--blue);font-size:14px;cursor:pointer;padding:0 0 8px;font-family:DM Sans,sans-serif;">← Back</button>
+    <div class="modal-title">📅 Event <em>Calendar</em></div>
+    <div class="modal-sub">Monthly view of logged events</div>
+    <div id="calendar-content" style="margin-top:12px;"></div>
+    <button class="btn-s" onclick="closeModal('calendar-modal')" style="margin-top:12px;">Close</button>
+  </div>
+</div>
+
+
 <!-- DETAIL MODAL -->
 <div class="overlay" id="detail-modal">
   <div class="sheet">
@@ -1184,8 +1363,8 @@ body.dark strong{color:#FFFFFF!important;}
 var versionTapCount = 0;
 var versionTapTimer = null;
 var pressTimer = null;
-var OWNER_CODE = 'LEXIEMOON69';
-var SUPPORT_CODE = 'LUNAMOON';
+var OWNER_CODE = 'REPLACE_WITH_YOUR_CODE';
+var SUPPORT_CODE = 'REPLACE_WITH_SUPPORT_CODE';
 var STANDARD_CODE = 'STDACTIVE01';
 var PRO_CODE = 'PROACTIVE01';
 var REVOKED_CODES = [];
@@ -1961,7 +2140,11 @@ function saveContact(){
     event:evtVal,clientId:cid,clientName:client?client.name:'',
     type:typeEl?typeEl.value:'follow',
     notes:document.getElementById('c-notes').value.trim(),
-    date:new Date().toISOString(),photo:window._contactPhoto||null,flagged:false
+    date:new Date().toISOString(),photo:window._contactPhoto||null,flagged:false,
+    linkedin:(document.getElementById('c-linkedin')||{}).value||'',
+    instagram:(document.getElementById('c-instagram')||{}).value||'',
+    twitter:(document.getElementById('c-twitter')||{}).value||'',
+    facebook:(document.getElementById('c-facebook')||{}).value||''
   };
   S.contacts.unshift(contact); save(); closeModal('cap-modal'); clearDraft();
   ['c-name','c-company','c-title','c-contact','c-website','c-notes'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
@@ -2314,7 +2497,12 @@ function exportSingleVCard(id){
     var b64=c.photo.split(',')[1]||'';
     if(b64) photoLine='PHOTO;ENCODING=b;TYPE=JPEG:'+b64+'\n';
   }
-  var vcard='BEGIN:VCARD\nVERSION:3.0\nFN:'+c.name+'\nORG:'+(c.company||'')+'\nTITLE:'+(c.title||'')+'\nTEL:'+(c.contactInfo||'')+'\nURL:'+(c.website||'')+'\nNOTE:'+(c.notes||'')+'\n'+photoLine+'END:VCARD';
+  var socialLines='';
+  if(c.linkedin)socialLines+='X-SOCIALPROFILE;type=linkedin:'+(c.linkedin.indexOf('http')===0?c.linkedin:'https://'+c.linkedin)+'\n';
+  if(c.instagram)socialLines+='X-SOCIALPROFILE;type=instagram:https://instagram.com/'+c.instagram.replace('@','')+'\n';
+  if(c.twitter)socialLines+='X-SOCIALPROFILE;type=twitter:https://x.com/'+c.twitter.replace('@','')+'\n';
+  if(c.facebook)socialLines+='X-SOCIALPROFILE;type=facebook:'+(c.facebook.indexOf('http')===0?c.facebook:'https://'+c.facebook)+'\n';
+  var vcard='BEGIN:VCARD\nVERSION:3.0\nFN:'+c.name+'\nORG:'+(c.company||'')+'\nTITLE:'+(c.title||'')+'\nTEL:'+(c.contactInfo||'')+'\nURL:'+(c.website||'')+'\nNOTE:'+(c.notes||'')+'\n'+socialLines+photoLine+'END:VCARD';
   var blob=new Blob([vcard],{type:'text/vcard'});
   var a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=c.name.replace(/\s/g,'_')+'.vcf'; a.click();
   toast('Saved to phone contacts'+(c.photo?' with photo':''));
@@ -2436,7 +2624,7 @@ function fillDropdowns(){
   ['c-client','e-client','wr-client','mr-client','ser-client'].forEach(function(id){
     var sel=document.getElementById(id); if(!sel)return;
     var val=sel.value;
-    sel.innerHTML=id==='e-client'?'<option value="">Select...</option><option value="general">General</option>':'<option value="">Select client...</option>';
+    sel.innerHTML=id==='e-client'?'<option value="">Select...</option><option value="general">General</option>':'<option value="">Select client/referral...</option>';
     S.clients.forEach(function(c){var o=document.createElement('option');o.value=c.id;o.textContent=c.name;sel.appendChild(o);});
     // Add New Client option to capture and event forms
     if(id==='c-client'||id==='e-client'){
@@ -2949,7 +3137,7 @@ function renderContacts(){
 
 function renderClients(){
   var list=document.getElementById('clients-list');
-  if(!S.clients.length){list.innerHTML='<div class="empty">No clients yet.<br>Add your first CEO service client.</div>';return;}
+  if(!S.clients.length){list.innerHTML='<div class="empty">No clients/referrals yet.<br>Add your first CEO service client or referral.</div>';return;}
   list.innerHTML=S.clients.map(function(c){
     var cc=S.contacts.filter(function(ct){return ct.clientId==c.id;}).length;
     var ce=S.events.filter(function(e){return e.clientId==c.id;}).length;
@@ -3014,7 +3202,8 @@ function renderReports(){
 function showDetail(id){
   var c=S.contacts.find(function(ct){return ct.id==id||ct.id===id;});
   if(!c)return;
-  var linkedinUrl=c.website&&c.website.indexOf('linkedin')>=0?c.website:null;
+  var linkedinUrl=c.website&&c.website.indexOf('linkedin')>=0?c.website:(c.linkedin||null);
+  if(linkedinUrl&&linkedinUrl.indexOf('http')!==0) linkedinUrl='https://'+linkedinUrl;
   var template=getTemplate(c.type,c.name,c.company);
   var photoHtml=c.photo?'<img src="'+c.photo+'" style="width:100%;height:100%;object-fit:cover;">':(c.name.charAt(0)||'?');
   var badgeClass=c.type==='hot'?'badge-hot':c.type==='follow'?'badge-follow':'badge-done';
@@ -3053,6 +3242,619 @@ function deleteReport(id){ if(!confirm('Delete this report?'))return; S.reports=
 
 var origOpenModal=openModal;
 window.openModal=function(id){ if(id==='cap-modal')setTimeout(restoreDraft,100); origOpenModal(id); };
+
+
+
+// ═══════════════════════════════════════════════════════
+// ENHANCEMENT: Edit Contact - social links + photo upload in edit modal
+// ═══════════════════════════════════════════════════════
+
+// Override openEdit to include more fields
+var _origOpenEdit = openEdit;
+openEdit = function(id){
+  var c=S.contacts.find(function(ct){return String(ct.id)===String(id);});
+  if(!c||c.owner)return;
+  editingId=String(id);
+  document.getElementById('edit-id').value=String(id);
+  document.getElementById('edit-name').value=c.name||'';
+  document.getElementById('edit-company').value=c.company||'';
+  document.getElementById('edit-title').value=c.title||'';
+  document.getElementById('edit-contact').value=c.contactInfo||'';
+  document.getElementById('edit-website').value=c.website||'';
+  document.getElementById('edit-event').value=c.event||'';
+  document.getElementById('edit-notes').value=c.notes||'';
+  // New fields
+  var el;
+  el=document.getElementById('edit-linkedin'); if(el) el.value=c.linkedin||'';
+  el=document.getElementById('edit-instagram'); if(el) el.value=c.instagram||'';
+  el=document.getElementById('edit-twitter'); if(el) el.value=c.twitter||'';
+  el=document.getElementById('edit-facebook'); if(el) el.value=c.facebook||'';
+  el=document.getElementById('edit-type'); if(el) el.value=c.type||'follow';
+  el=document.getElementById('edit-client-select'); if(el){
+    el.innerHTML='<option value="">No client/referral</option>';
+    S.clients.forEach(function(cl){var o=document.createElement('option');o.value=cl.id;o.textContent=cl.name;el.appendChild(o);});
+    el.value=c.clientId||'';
+  }
+  // Photo
+  window._editPhoto=c.photo||null;
+  var epImg=document.getElementById('edit-photo-img');
+  var epIcon=document.getElementById('edit-photo-icon');
+  if(epImg&&epIcon){
+    if(c.photo){epImg.src=c.photo;epImg.style.display='block';epIcon.style.display='none';}
+    else{epImg.style.display='none';epIcon.style.display='block';}
+  }
+  closeModal('detail-modal');
+  setTimeout(function(){openModal('edit-modal');},300);
+};
+
+// Override saveEdit to include new fields
+var _origSaveEdit = saveEdit;
+saveEdit = function(){
+  var id=editingId;
+  var c=S.contacts.find(function(ct){return String(ct.id)===String(id);});
+  if(!c){toast('Contact not found');return;}
+  var name=document.getElementById('edit-name').value.trim();
+  if(!name){toast('Name is required');return;}
+  c.name=name;
+  c.company=document.getElementById('edit-company').value.trim();
+  c.title=document.getElementById('edit-title').value.trim();
+  c.contactInfo=document.getElementById('edit-contact').value.trim();
+  c.website=document.getElementById('edit-website').value.trim();
+  c.event=document.getElementById('edit-event').value.trim();
+  c.notes=document.getElementById('edit-notes').value.trim();
+  // New fields
+  var el;
+  el=document.getElementById('edit-linkedin'); if(el) c.linkedin=el.value.trim();
+  el=document.getElementById('edit-instagram'); if(el) c.instagram=el.value.trim();
+  el=document.getElementById('edit-twitter'); if(el) c.twitter=el.value.trim();
+  el=document.getElementById('edit-facebook'); if(el) c.facebook=el.value.trim();
+  el=document.getElementById('edit-type'); if(el) c.type=el.value;
+  el=document.getElementById('edit-client-select'); if(el){
+    c.clientId=el.value;
+    var cl=S.clients.find(function(x){return String(x.id)===el.value;});
+    c.clientName=cl?cl.name:'';
+  }
+  if(window._editPhoto!==undefined) c.photo=window._editPhoto;
+  save(); closeModal('edit-modal'); renderAll(); toast('Contact updated');
+};
+
+function setEditContactPhoto(input){
+  if(!input.files||!input.files[0])return;
+  compressAvatar(input.files[0]).then(function(dataUrl){
+    if(!dataUrl){toast('Could not process photo');return;}
+    window._editPhoto=dataUrl;
+    var img=document.getElementById('edit-photo-img');
+    var icon=document.getElementById('edit-photo-icon');
+    if(img){img.src=dataUrl;img.style.display='block';}
+    if(icon)icon.style.display='none';
+    toast('Photo updated');
+  });
+}
+
+// ═══════════════════════════════════════════════════════
+// ENHANCEMENT: Research This Contact auto-loads from dropdown
+// ═══════════════════════════════════════════════════════
+var _origPrefillResearch = typeof prefillResearch !== 'undefined' ? prefillResearch : null;
+function prefillResearch(){
+  var sel=document.getElementById('research-contact-select');
+  if(!sel||!sel.value)return;
+  var c=S.contacts.find(function(ct){return String(ct.id)===String(sel.value);});
+  if(!c)return;
+  window._researchContactId=String(c.id);
+  document.getElementById('research-name').textContent='Researching: '+c.name;
+  var nameEl=document.getElementById('research-manual-name');
+  var compEl=document.getElementById('research-manual-company');
+  var pasteEl=document.getElementById('research-manual-paste');
+  if(nameEl)nameEl.value=c.name||'';
+  if(compEl)compEl.value=c.company||'';
+  var extras=[];
+  if(c.website)extras.push('Website: '+c.website);
+  if(c.linkedin)extras.push('LinkedIn: '+c.linkedin);
+  if(c.title)extras.push('Title: '+c.title);
+  if(c.contactInfo)extras.push('Contact: '+c.contactInfo);
+  if(pasteEl)pasteEl.value=extras.join('\n');
+  // Auto-run research
+  setTimeout(function(){runResearch();},500);
+}
+
+// ═══════════════════════════════════════════════════════
+// ENHANCEMENT: Client/Referral section editable
+// ═══════════════════════════════════════════════════════
+function openEditClient(id){
+  var c=S.clients.find(function(cl){return String(cl.id)===String(id);});
+  if(!c)return;
+  window._editingClientId=String(id);
+  // Populate edit client modal
+  var fields={
+    'ecl-name':c.name,'ecl-contact':c.contactName,'ecl-email':c.email,'ecl-phone':c.phone,
+    'ecl-tier':c.tier,'ecl-rate':c.rate||'','ecl-pitch':c.pitch,'ecl-rooms':c.rooms,
+    'ecl-avoid':c.avoid,'ecl-start':c.start,
+    'ecl-linkedin':c.linkedin,'ecl-instagram':c.instagram,'ecl-facebook':c.facebook,
+    'ecl-twitter':c.twitter,'ecl-tiktok':c.tiktok,'ecl-website':c.website
+  };
+  for(var k in fields){
+    var el=document.getElementById(k);
+    if(el)el.value=fields[k]||'';
+  }
+  window._editClientPhoto=c.photo||null;
+  var img=document.getElementById('ecl-photo-img');
+  var icon=document.getElementById('ecl-photo-icon');
+  if(img&&icon){
+    if(c.photo){img.src=c.photo;img.style.display='block';icon.style.display='none';}
+    else{img.style.display='none';icon.style.display='block';}
+  }
+  openModal('ecl-modal');
+}
+
+function setEditClientPhoto(input){
+  if(!input.files||!input.files[0])return;
+  compressAvatar(input.files[0]).then(function(dataUrl){
+    if(!dataUrl){toast('Could not process photo');return;}
+    window._editClientPhoto=dataUrl;
+    var img=document.getElementById('ecl-photo-img');
+    var icon=document.getElementById('ecl-photo-icon');
+    if(img){img.src=dataUrl;img.style.display='block';}
+    if(icon)icon.style.display='none';
+    toast('Photo updated');
+  });
+}
+
+function saveEditClient(){
+  var id=window._editingClientId;
+  var c=S.clients.find(function(cl){return String(cl.id)===String(id);});
+  if(!c){toast('Client not found');return;}
+  var name=document.getElementById('ecl-name').value.trim();
+  if(!name){toast('Name is required');return;}
+  c.name=name;
+  c.contactName=document.getElementById('ecl-contact').value.trim();
+  c.email=document.getElementById('ecl-email').value.trim();
+  c.phone=document.getElementById('ecl-phone').value.trim();
+  c.tier=document.getElementById('ecl-tier').value;
+  c.rate=parseInt(document.getElementById('ecl-rate').value)||0;
+  c.pitch=document.getElementById('ecl-pitch').value.trim();
+  c.rooms=document.getElementById('ecl-rooms').value.trim();
+  c.avoid=document.getElementById('ecl-avoid').value.trim();
+  c.start=document.getElementById('ecl-start').value;
+  c.linkedin=document.getElementById('ecl-linkedin').value.trim();
+  c.instagram=document.getElementById('ecl-instagram').value.trim();
+  c.facebook=document.getElementById('ecl-facebook').value.trim();
+  c.twitter=document.getElementById('ecl-twitter').value.trim();
+  c.tiktok=document.getElementById('ecl-tiktok').value.trim();
+  c.website=document.getElementById('ecl-website').value.trim();
+  if(window._editClientPhoto!==undefined) c.photo=window._editClientPhoto;
+  save(); closeModal('ecl-modal'); renderAll(); toast('Client/Referral updated');
+}
+
+function deleteClient(id){
+  if(!confirm('Delete this client/referral? Contacts linked to it will keep their data.'))return;
+  S.clients=S.clients.filter(function(c){return String(c.id)!==String(id);});
+  save(); closeModal('ecl-modal'); renderAll(); toast('Client/Referral deleted');
+}
+
+// ═══════════════════════════════════════════════════════
+// ENHANCEMENT: Event log editable after saving
+// ═══════════════════════════════════════════════════════
+function openEditEvent(id){
+  var e=S.events.find(function(ev){return String(ev.id)===String(id);});
+  if(!e)return;
+  window._editingEventId=String(id);
+  var fields={
+    'ee-name':e.name,'ee-date':e.date,'ee-venue':e.venue,
+    'ee-convos':e.convos||'','ee-cc':e.cc||'',
+    'ee-intros':e.intros||'','ee-posts':e.posts||'',
+    'ee-summary':e.summary,'ee-intel':e.intel,
+    'ee-costs':e.costs,'ee-fit':e.fit
+  };
+  for(var k in fields){
+    var el=document.getElementById(k);
+    if(el)el.value=fields[k]||'';
+  }
+  // Client dropdown
+  var sel=document.getElementById('ee-client');
+  if(sel){
+    sel.innerHTML='<option value="">Select...</option><option value="general">General</option>';
+    S.clients.forEach(function(c){var o=document.createElement('option');o.value=c.id;o.textContent=c.name;sel.appendChild(o);});
+    sel.value=e.clientId||'';
+  }
+  openModal('ee-modal');
+}
+
+function saveEditEvent(){
+  var id=window._editingEventId;
+  var e=S.events.find(function(ev){return String(ev.id)===String(id);});
+  if(!e){toast('Event not found');return;}
+  var name=document.getElementById('ee-name').value.trim();
+  if(!name){toast('Event name required');return;}
+  e.name=name;
+  e.date=document.getElementById('ee-date').value;
+  e.venue=document.getElementById('ee-venue').value.trim();
+  var cid=document.getElementById('ee-client').value;
+  e.clientId=cid;
+  var cl=S.clients.find(function(c){return String(c.id)===cid;});
+  e.clientName=cid==='general'?'General':cl?cl.name:'';
+  e.convos=parseInt(document.getElementById('ee-convos').value)||0;
+  e.cc=parseInt(document.getElementById('ee-cc').value)||0;
+  e.intros=parseInt(document.getElementById('ee-intros').value)||0;
+  e.posts=parseInt(document.getElementById('ee-posts').value)||0;
+  e.summary=document.getElementById('ee-summary').value.trim();
+  e.intel=document.getElementById('ee-intel').value.trim();
+  e.costs=document.getElementById('ee-costs').value.trim();
+  e.fit=document.getElementById('ee-fit').value;
+  e.roi=e.convos>0?Math.round((e.cc/e.convos)*100):0;
+  save(); closeModal('ee-modal'); renderAll(); toast('Event updated');
+}
+
+function deleteEvent(id){
+  if(!confirm('Delete this event?'))return;
+  S.events=S.events.filter(function(e){return String(e.id)!==String(id);});
+  save(); closeModal('ee-modal'); renderAll(); toast('Event deleted');
+}
+
+// ═══════════════════════════════════════════════════════
+// ENHANCEMENT: Brief export with confirmation + options
+// ═══════════════════════════════════════════════════════
+function exportBriefWithOptions(content, title){
+  var modal=document.getElementById('brief-export-modal');
+  if(!modal)return;
+  window._briefContent=content;
+  window._briefTitle=title||'FollowOp Brief';
+  document.getElementById('brief-export-preview').textContent=content.substring(0,300)+(content.length>300?'...':'');
+  openModal('brief-export-modal');
+}
+
+function briefDownload(){
+  var blob=new Blob([window._briefContent],{type:'text/plain'});
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download=(window._briefTitle||'brief').replace(/\s/g,'_')+'.txt';
+  a.click();
+  toast('Brief downloaded!');
+}
+
+function briefCopy(){
+  navigator.clipboard.writeText(window._briefContent).then(function(){
+    toast('Brief copied to clipboard!');
+  }).catch(function(){
+    // Fallback
+    var ta=document.createElement('textarea');ta.value=window._briefContent;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();
+    toast('Brief copied!');
+  });
+}
+
+function briefEmail(){
+  var subject=encodeURIComponent(window._briefTitle||'FollowOp Brief');
+  var body=encodeURIComponent(window._briefContent);
+  window.open('mailto:?subject='+subject+'&body='+body);
+  toast('Opening email...');
+}
+
+// Override genSpecialEventReport to use brief export
+var _origGenSER = genSpecialEventReport;
+genSpecialEventReport = function(){
+  _origGenSER();
+  // After generation, the report is in ser-output
+  setTimeout(function(){
+    var output=document.getElementById('ser-output');
+    if(output&&output.textContent){
+      // Keep original behavior but also store for export
+      window._lastSERReport=output.textContent;
+    }
+  },500);
+};
+
+// Override copySERReport to use new export
+var _origCopySER = copySERReport;
+copySERReport = function(){
+  var r=document.getElementById('ser-output').textContent;
+  if(r) exportBriefWithOptions(r, 'Special Event Report');
+};
+
+// Override genWeekly to use brief export
+var _origGenWeekly = genWeekly;
+genWeekly = function(){
+  // Call original but intercept the clipboard
+  var origWrite = navigator.clipboard.writeText.bind(navigator.clipboard);
+  navigator.clipboard.writeText = function(text){
+    window._weeklyReport = text;
+    exportBriefWithOptions(text, 'Weekly Report');
+    navigator.clipboard.writeText = origWrite;
+    return Promise.resolve();
+  };
+  _origGenWeekly();
+};
+
+// Override genMonthly similarly
+var _origGenMonthly = genMonthly;
+genMonthly = function(){
+  var origWrite = navigator.clipboard.writeText.bind(navigator.clipboard);
+  navigator.clipboard.writeText = function(text){
+    window._monthlyReport = text;
+    exportBriefWithOptions(text, 'Monthly Summary');
+    navigator.clipboard.writeText = origWrite;
+    return Promise.resolve();
+  };
+  _origGenMonthly();
+};
+
+// ═══════════════════════════════════════════════════════
+// ENHANCEMENT: CSV Import fixed for desktop + iPhone
+// ═══════════════════════════════════════════════════════
+var _origImportCSV = importCSV;
+importCSV = function(input){
+  if(!input.files||!input.files[0])return;
+  var file=input.files[0];
+  var reader=new FileReader();
+  reader.onload=function(e){
+    try{
+      var text=e.target.result;
+      // Handle BOM
+      if(text.charCodeAt(0)===0xFEFF) text=text.substring(1);
+      // Normalize line endings (iPhone uses \r)
+      text=text.replace(/\r\n/g,'\n').replace(/\r/g,'\n');
+      var lines=text.split('\n');
+      if(lines.length<2){toast('CSV appears empty');return;}
+      var headers=parseCSVLine(lines[0]).map(function(h){return h.trim().replace(/"/g,'').toLowerCase();});
+      var imported=0,skipped=0;
+      for(var i=1;i<lines.length;i++){
+        var line=lines[i].trim();
+        if(!line) continue;
+        var fields=parseCSVLine(line);
+        var contact={id:Date.now()+i,date:new Date().toISOString(),type:'follow',flagged:false};
+        headers.forEach(function(h,idx){
+          var val=(fields[idx]||'').trim().replace(/^"|"$/g,'');
+          // Comprehensive field mapping
+          if(h==='name'||h==='full name'||h==='fullname'||h==='contact name') contact.name=val;
+          else if(h==='first name'||h==='firstname'||h==='first') {contact.name=(contact.name||'')+val;}
+          else if(h==='last name'||h==='lastname'||h==='last') {contact.name=((contact.name||'')+' '+val).trim();}
+          else if(h==='company'||h==='organization'||h==='org'||h==='business') contact.company=val;
+          else if(h==='title'||h==='job title'||h==='role'||h==='position') contact.title=val;
+          else if(h==='phone'||h==='phone number'||h==='mobile'||h==='cell'||h==='telephone') contact.contactInfo=val;
+          else if(h==='email'||h==='e-mail'||h==='email address') {if(!contact.contactInfo)contact.contactInfo=val; else contact.email=val;}
+          else if(h==='contact'||h==='contactinfo'||h==='contact info') contact.contactInfo=val;
+          else if(h==='website'||h==='url'||h==='web') contact.website=val;
+          else if(h==='linkedin'||h==='linkedin url'||h==='linkedin profile') {contact.linkedin=val;if(!contact.website)contact.website=val;}
+          else if(h==='instagram') contact.instagram=val;
+          else if(h==='twitter'||h==='x'||h==='x handle') contact.twitter=val;
+          else if(h==='facebook') contact.facebook=val;
+          else if(h==='notes'||h==='note'||h==='comments'||h==='comment') contact.notes=val;
+          else if(h==='event'||h==='event name') contact.event=val;
+          else if(h==='type'||h==='contact type'||h==='category') contact.type=val||'follow';
+          else if(h==='client'||h==='clientname'||h==='client name'||h==='referral') contact.clientName=val;
+          else if(h==='intel'||h==='intelligence'||h==='research'||h==='research this contact') contact.intel=val;
+          else if(h==='read the room'||h==='room notes'||h==='room intel') {contact.notes=(contact.notes?contact.notes+'\n':'')+val;}
+          else if(h==='flagged'||h==='flag') contact.flagged=(val.toLowerCase()==='yes'||val==='1'||val.toLowerCase()==='true');
+          else if(h==='date'||h==='date added'||h==='created') {try{var d=new Date(val);if(!isNaN(d))contact.date=d.toISOString();}catch(ex){}}
+        });
+        if(contact.name&&contact.name.length>0){
+          var exists=S.contacts.find(function(c){return c.name===contact.name&&c.contactInfo===contact.contactInfo;});
+          if(!exists){
+            if(!contact.type||['hot','follow','recommend','intel'].indexOf(contact.type)<0) contact.type='follow';
+            S.contacts.push(contact);
+            imported++;
+          } else { skipped++; }
+        }
+      }
+      save(); renderAll();
+      var msg='Imported '+imported+' contacts';
+      if(skipped>0) msg+=' ('+skipped+' duplicates skipped)';
+      toast(msg);
+      input.value='';
+    }catch(err){
+      toast('Import failed — check CSV format');
+      console.error('Import error:',err);
+    }
+  };
+  reader.onerror=function(){toast('Could not read file — try again');};
+  reader.readAsText(file,'UTF-8');
+};
+
+function parseCSVLine(line){
+  var fields=[];var inQuote=false;var field='';
+  for(var c=0;c<line.length;c++){
+    if(line[c]==='"'){
+      if(inQuote&&c+1<line.length&&line[c+1]==='"'){field+='"';c++;}
+      else inQuote=!inQuote;
+    }
+    else if(line[c]===','&&!inQuote){fields.push(field);field='';}
+    else{field+=line[c];}
+  }
+  fields.push(field);
+  return fields;
+}
+
+// ═══════════════════════════════════════════════════════
+// ENHANCEMENT: Calendar view (monthly grid) of logged events
+// ═══════════════════════════════════════════════════════
+var calendarMonth = new Date().getMonth();
+var calendarYear = new Date().getFullYear();
+
+function showCalendar(){
+  renderCalendar();
+  openModal('calendar-modal');
+}
+
+function renderCalendar(){
+  var monthNames=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var dayNames=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var firstDay=new Date(calendarYear,calendarMonth,1).getDay();
+  var daysInMonth=new Date(calendarYear,calendarMonth+1,0).getDate();
+  var today=new Date();
+
+  // Get events for this month
+  var monthEvents={};
+  S.events.forEach(function(e){
+    if(!e.date)return;
+    var d=new Date(e.date);
+    if(d.getMonth()===calendarMonth&&d.getFullYear()===calendarYear){
+      var day=d.getDate();
+      if(!monthEvents[day])monthEvents[day]=[];
+      monthEvents[day].push(e);
+    }
+  });
+
+  var html='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">';
+  html+='<button onclick="calPrev()" style="background:none;border:1px solid var(--border);color:var(--blue);padding:8px 14px;cursor:pointer;font-size:16px;">←</button>';
+  html+='<div style="font-family:Cormorant Garamond,serif;font-size:22px;font-weight:300;color:var(--text);">'+monthNames[calendarMonth]+' '+calendarYear+'</div>';
+  html+='<button onclick="calNext()" style="background:none;border:1px solid var(--border);color:var(--blue);padding:8px 14px;cursor:pointer;font-size:16px;">→</button>';
+  html+='</div>';
+
+  html+='<div style="display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:var(--border);">';
+  // Day headers
+  dayNames.forEach(function(d){
+    html+='<div style="background:var(--navy);color:var(--light);text-align:center;padding:8px 2px;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;">'+d+'</div>';
+  });
+  // Empty cells before first day
+  for(var i=0;i<firstDay;i++){
+    html+='<div style="background:var(--panel);padding:6px;min-height:60px;"></div>';
+  }
+  // Days
+  for(var d=1;d<=daysInMonth;d++){
+    var isToday=(d===today.getDate()&&calendarMonth===today.getMonth()&&calendarYear===today.getFullYear());
+    var hasEvents=monthEvents[d]&&monthEvents[d].length>0;
+    var bg=isToday?'rgba(37,99,235,0.15)':'var(--panel)';
+    var border=isToday?'border:2px solid var(--blue);':'';
+    html+='<div style="background:'+bg+';padding:4px;min-height:60px;'+border+'position:relative;">';
+    html+='<div style="font-size:12px;font-weight:'+(isToday?'700':'400')+';color:'+(isToday?'var(--blue)':'var(--text)')+';margin-bottom:2px;">'+d+'</div>';
+    if(hasEvents){
+      monthEvents[d].forEach(function(ev){
+        html+='<div onclick="openEditEvent('+ev.id+')" style="font-size:9px;background:rgba(37,99,235,0.2);color:var(--blue);padding:2px 4px;margin-bottom:1px;cursor:pointer;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;border-radius:2px;" title="'+ev.name+'">'+ev.name+'</div>';
+      });
+    }
+    html+='</div>';
+  }
+  // Fill remaining cells
+  var totalCells=firstDay+daysInMonth;
+  var remaining=7-(totalCells%7);
+  if(remaining<7){
+    for(var i=0;i<remaining;i++){
+      html+='<div style="background:var(--panel);padding:6px;min-height:60px;"></div>';
+    }
+  }
+  html+='</div>';
+
+  document.getElementById('calendar-content').innerHTML=html;
+}
+
+function calPrev(){
+  calendarMonth--;
+  if(calendarMonth<0){calendarMonth=11;calendarYear--;}
+  renderCalendar();
+}
+function calNext(){
+  calendarMonth++;
+  if(calendarMonth>11){calendarMonth=0;calendarYear++;}
+  renderCalendar();
+}
+
+// ═══════════════════════════════════════════════════════
+// ENHANCEMENT: Override renderClients to add edit buttons
+// ═══════════════════════════════════════════════════════
+var _origRenderClients = renderClients;
+renderClients = function(){
+  var list=document.getElementById('clients-list');
+  if(!S.clients.length){list.innerHTML='<div class="empty">No clients/referrals yet.<br>Add your first CEO service client or referral.</div>';return;}
+  list.innerHTML=S.clients.map(function(c){
+    var cc=S.contacts.filter(function(ct){return ct.clientId==c.id;}).length;
+    var ce=S.events.filter(function(e){return e.clientId==c.id;}).length;
+    var socials=[];
+    if(c.linkedin)socials.push('<a class="social-link" href="'+(c.linkedin.indexOf('http')===0?c.linkedin:'https://'+c.linkedin)+'" target="_blank" rel="noopener">LinkedIn</a>');
+    if(c.instagram)socials.push('<a class="social-link" href="https://instagram.com/'+c.instagram.replace('@','')+'" target="_blank">Instagram</a>');
+    if(c.facebook)socials.push('<a class="social-link" href="'+(c.facebook.indexOf('http')===0?c.facebook:'https://'+c.facebook)+'" target="_blank">Facebook</a>');
+    if(c.twitter)socials.push('<a class="social-link" href="https://x.com/'+c.twitter.replace('@','')+'" target="_blank">X</a>');
+    if(c.tiktok)socials.push('<a class="social-link" href="https://tiktok.com/@'+c.tiktok.replace('@','')+'" target="_blank">TikTok</a>');
+    if(c.website)socials.push('<a class="social-link" href="'+(c.website.indexOf('http')===0?c.website:'https://'+c.website)+'" target="_blank">Website</a>');
+    var clPhotoHtml = c.photo ?
+      '<img src="'+c.photo+'" style="width:48px;height:48px;object-fit:cover;border-radius:6px;border:2px solid '+(c.color||'var(--blue)')+';margin-bottom:10px;display:block;">' : '';
+    return '<div class="client-card" style="border-left-color:'+(c.color||'var(--navy)')+';">'+
+      clPhotoHtml+
+      '<div class="cl-name" style="color:'+(c.color||'var(--navy)')+';">'+c.name+'</div>'+
+      '<div class="cl-tier">'+c.tier+(c.rate?' · $'+c.rate.toLocaleString()+'/mo':'')+(c.contactName?' · '+c.contactName:'')+'</div>'+
+      '<div class="cl-stats"><div class="cl-stat"><strong>'+ce+'</strong>Events</div><div class="cl-stat"><strong>'+cc+'</strong>Contacts</div><div class="cl-stat"><strong>'+(c.start||'—')+'</strong>Started</div></div>'+
+      (socials.length?'<div class="social-links">'+socials.join('')+'</div>':'')+
+      (c.pitch?'<div style="margin-top:8px;font-size:12px;color:var(--light);font-style:italic;line-height:1.6;">\"'+c.pitch.substring(0,120)+(c.pitch.length>120?'...\"':'\"')+'</div>':'')+
+      '<div style="display:flex;gap:6px;margin-top:10px;"><button onclick="openEditClient('+c.id+')" style="padding:6px 12px;font-size:11px;background:var(--blue-dim);border:1px solid var(--blue-border);color:var(--blue);cursor:pointer;font-family:DM Sans,sans-serif;letter-spacing:0.08em;text-transform:uppercase;">Edit</button><button onclick="deleteClient('+c.id+')" style="padding:6px 12px;font-size:11px;background:rgba(220,38,38,0.08);border:1px solid rgba(220,38,38,0.2);color:var(--red);cursor:pointer;font-family:DM Sans,sans-serif;letter-spacing:0.08em;text-transform:uppercase;">Delete</button></div>'+
+      '</div>';
+  }).join('');
+};
+
+// ═══════════════════════════════════════════════════════
+// ENHANCEMENT: Override renderEvents to add edit/delete buttons
+// ═══════════════════════════════════════════════════════
+var _origRenderEvents = renderEvents;
+renderEvents = function(){
+  var list=document.getElementById('events-list');
+  if(!S.events.length){list.innerHTML='<div class="empty">No events logged yet.<br>Tap + Log after your next event.</div>';return;}
+  list.innerHTML=S.events.map(function(e){
+    return '<div class="ev-card">'+
+      '<div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:7px;">'+
+      '<div><div class="ev-name">'+e.name+'</div><div class="ev-meta">'+e.date+(e.venue?' · '+e.venue:'')+'</div></div>'+
+      '<span class="c-tag">'+(e.clientName||'General')+'</span></div>'+
+      '<div class="ev-stats">'+
+      '<div class="ev-stat"><div class="ev-num">'+(e.convos||0)+'</div><div class="ev-lbl">Convos</div></div>'+
+      '<div class="ev-stat"><div class="ev-num">'+(e.cc||0)+'</div><div class="ev-lbl">Contacts</div></div>'+
+      '<div class="ev-stat"><div class="ev-num">'+(e.intros||0)+'</div><div class="ev-lbl">Intros</div></div>'+
+      '<div class="ev-stat"><div class="ev-num">'+(e.posts||0)+'</div><div class="ev-lbl">Posts</div></div></div>'+
+      (e.roi?'<div class="ev-roi">ROI Score: '+e.roi+'% efficiency</div>':'')+
+      (e.summary?'<div style="margin-top:8px;font-size:12px;color:var(--light);line-height:1.7;">'+e.summary.substring(0,150)+(e.summary.length>150?'...':'')+'</div>':'')+
+      '<div style="display:flex;gap:6px;margin-top:10px;"><button onclick="openEditEvent('+e.id+')" style="padding:6px 12px;font-size:11px;background:var(--blue-dim);border:1px solid var(--blue-border);color:var(--blue);cursor:pointer;font-family:DM Sans,sans-serif;letter-spacing:0.08em;text-transform:uppercase;">Edit</button><button onclick="deleteEvent('+e.id+')" style="padding:6px 12px;font-size:11px;background:rgba(220,38,38,0.08);border:1px solid rgba(220,38,38,0.2);color:var(--red);cursor:pointer;font-family:DM Sans,sans-serif;letter-spacing:0.08em;text-transform:uppercase;">Delete</button></div>'+
+      '</div>';
+  }).join('');
+};
+
+// ═══════════════════════════════════════════════════════
+// ENHANCEMENT: Contact profile with social links in detail view
+// ═══════════════════════════════════════════════════════
+var _origShowDetail = showDetail;
+showDetail = function(id){
+  var c=S.contacts.find(function(ct){return ct.id==id||ct.id===id;});
+  if(!c)return;
+  var linkedinUrl=c.website&&c.website.indexOf('linkedin')>=0?c.website:(c.linkedin||null);
+  if(linkedinUrl&&linkedinUrl.indexOf('http')!==0) linkedinUrl='https://'+linkedinUrl;
+  var template=getTemplate(c.type,c.name,c.company);
+  var photoHtml=c.photo?'<img src="'+c.photo+'" style="width:100%;height:100%;object-fit:cover;">':(c.name.charAt(0)||'?');
+  var badgeClass=c.type==='hot'?'badge-hot':c.type==='follow'?'badge-follow':'badge-done';
+  var badgeText=c.type==='hot'?'Hot Intro':c.type==='follow'?'Follow Up':c.type==='recommend'?'Recommend':'Intel';
+
+  var html='<div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;">'+
+    '<div style="width:64px;height:64px;border-radius:50%;background:var(--blue-dim);border:2px solid var(--blue-border);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;">'+photoHtml+'</div>'+
+    '<div><div class="modal-title" style="margin-bottom:2px;">'+c.name+'</div>'+
+    '<div class="modal-sub" style="margin-bottom:0;">'+([c.title,c.company].filter(Boolean).join(' · ')||'No details')+'</div></div></div>'+
+    '<div style="display:flex;flex-direction:column;gap:12px;">';
+
+  if(c.contactInfo)html+='<div><div style="font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--light);margin-bottom:3px;font-weight:500;">Contact</div><div style="font-size:14px;">'+c.contactInfo+'</div></div>';
+  if(c.website)html+='<div><div style="font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--light);margin-bottom:3px;font-weight:500;">Website</div><div style="font-size:14px;"><a href="'+(c.website.indexOf('http')===0?c.website:'https://'+c.website)+'" target="_blank" rel="noopener" style="color:var(--blue);">'+c.website+'</a></div></div>';
+
+  // Social links section
+  var socials=[];
+  if(linkedinUrl)socials.push('<a href="'+linkedinUrl+'" target="_blank" rel="noopener" style="display:inline-block;padding:6px 12px;background:var(--blue-dim);border:1px solid var(--blue-border);color:var(--blue);font-size:11px;text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;font-family:DM Sans,sans-serif;">LinkedIn →</a>');
+  if(c.instagram)socials.push('<a href="https://instagram.com/'+c.instagram.replace('@','')+'" target="_blank" rel="noopener" style="display:inline-block;padding:6px 12px;background:rgba(225,48,108,0.1);border:1px solid rgba(225,48,108,0.3);color:#e1306c;font-size:11px;text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;font-family:DM Sans,sans-serif;">Instagram</a>');
+  if(c.twitter)socials.push('<a href="https://x.com/'+c.twitter.replace('@','')+'" target="_blank" rel="noopener" style="display:inline-block;padding:6px 12px;background:var(--panel);border:1px solid var(--border);color:var(--mid);font-size:11px;text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;font-family:DM Sans,sans-serif;">X / Twitter</a>');
+  if(c.facebook)socials.push('<a href="'+(c.facebook.indexOf('http')===0?c.facebook:'https://'+c.facebook)+'" target="_blank" rel="noopener" style="display:inline-block;padding:6px 12px;background:rgba(24,119,242,0.1);border:1px solid rgba(24,119,242,0.3);color:#1877f2;font-size:11px;text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;font-family:DM Sans,sans-serif;">Facebook</a>');
+  if(socials.length)html+='<div><div style="font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--light);margin-bottom:6px;font-weight:500;">Social Links</div><div style="display:flex;flex-wrap:wrap;gap:6px;">'+socials.join('')+'</div></div>';
+
+  if(c.event)html+='<div><div style="font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--light);margin-bottom:3px;font-weight:500;">From Event</div><div style="font-size:14px;">'+c.event+'</div></div>';
+  if(c.clientName)html+='<div><div style="font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--light);margin-bottom:3px;font-weight:500;">Client/Referral</div><div style="font-size:14px;color:var(--blue);">'+c.clientName+'</div></div>';
+
+  html+='<div><span class="badge '+badgeClass+'">'+badgeText+'</span>'+(c.incomplete?'<span style="font-size:10px;background:rgba(245,158,11,0.1);color:var(--amber);border:1px solid rgba(245,158,11,0.3);padding:3px 8px;letter-spacing:0.08em;text-transform:uppercase;margin-left:6px;">Incomplete</span>':'')+'</div>';
+  if(c.notes)html+='<div><div style="font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--light);margin-bottom:3px;font-weight:500;">Notes</div><div style="font-size:13px;color:var(--mid);line-height:1.7;">'+c.notes+'</div></div>';
+  if(c.hotIntroEmail)html+='<div><div style="font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--light);margin-bottom:3px;font-weight:500;">Hot Intro Draft</div><div style="font-size:12px;color:var(--mid);line-height:1.7;font-style:italic;">'+c.hotIntroEmail+'</div><button onclick="navigator.clipboard.writeText(this.previousElementSibling.textContent).then(function(){toast(\'Copied!\');})" style="margin-top:6px;padding:6px 12px;background:var(--blue-dim);border:1px solid var(--blue-border);color:var(--blue);font-size:11px;cursor:pointer;font-family:DM Sans,sans-serif;letter-spacing:0.08em;text-transform:uppercase;">Copy Draft</button></div>';
+  if(c.intel)html+='<div><div style="font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--blue);margin-bottom:3px;font-weight:500;">Contact Intelligence</div><div style="background:var(--panel);border:1px solid var(--border);padding:10px;font-size:12px;color:var(--mid);line-height:1.8;white-space:pre-wrap;max-height:200px;overflow-y:auto;">'+c.intel+'</div></div>';
+
+  html+='<div><div style="font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--light);margin-bottom:5px;font-weight:500;">Follow-Up Template</div><div style="font-size:12px;color:var(--mid);line-height:1.7;font-style:italic;">'+template+'</div><button onclick="navigator.clipboard.writeText(\''+template.replace(/'/g,"\\\'")+'\')" style="margin-top:6px;padding:6px 12px;background:var(--blue-dim);border:1px solid var(--blue-border);color:var(--blue);font-size:11px;cursor:pointer;font-family:DM Sans,sans-serif;letter-spacing:0.08em;text-transform:uppercase;">Copy Template</button></div>';
+  html+='<div style="font-size:11px;color:var(--light);">'+new Date(c.date).toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})+'</div>';
+
+  html+='<div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px;">';
+  if(!c.owner)html+='<button onclick="toggleFlag(\''+c.id+'\');closeModal(\'detail-modal\')" class="flag-btn '+(c.flagged?'flagged':'')+'"> '+(c.flagged?'Flagged':'Flag for Follow-Up')+'</button>';
+  html+='<button onclick="exportSingleVCard(\''+c.id+'\')" style="padding:6px 12px;font-size:11px;background:var(--panel);border:1px solid var(--border);color:var(--mid);cursor:pointer;font-family:DM Sans,sans-serif;letter-spacing:0.08em;text-transform:uppercase;">Save to Phone</button>';
+  if(!c.owner)html+='<button onclick="openEdit(\''+c.id+'\')" style="padding:6px 12px;font-size:11px;background:var(--blue-dim);border:1px solid var(--blue-border);color:var(--blue);cursor:pointer;font-family:DM Sans,sans-serif;letter-spacing:0.08em;text-transform:uppercase;">Edit</button>';
+  if(!c.owner)html+='<button onclick="deleteContact(\''+c.id+'\')" style="padding:6px 12px;font-size:11px;background:rgba(220,38,38,0.08);border:1px solid rgba(220,38,38,0.2);color:var(--red);cursor:pointer;font-family:DM Sans,sans-serif;letter-spacing:0.08em;text-transform:uppercase;">Delete</button>';
+  html+='</div>';
+  html+='<button onclick="researchContact(\''+c.id+'\')" style="width:100%;margin-top:10px;padding:14px;background:var(--navy);border:none;color:#fff;font-family:DM Sans,sans-serif;font-size:13px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;">🔍 Research This Contact</button>';
+  html+='</div>';
+  document.getElementById('detail-content').innerHTML=html;
+  openModal('detail-modal');
+};
+
 
 init();
 
